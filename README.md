@@ -1,4 +1,5 @@
 # Xamarin ShapedView
+### Migrated to use the newer AndroidX Support Libraries
 
 [![platform](https://img.shields.io/badge/platform-Xamarin.Android-brightgreen.svg)](https://www.xamarin.com/)
 [![API](https://img.shields.io/badge/API-10%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=10s)
@@ -10,6 +11,8 @@ Port of ShapeOfView by Florent37
 Give a custom shape to any android view. Useful for Material Design 2
 
 [CREATE SOME SAMPLE GIFS]
+
+
 
 # Download
 
