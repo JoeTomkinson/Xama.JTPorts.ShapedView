@@ -1,7 +1,6 @@
 ﻿using Android.Content;
 using Android.Content.Res;
 using Android.Util;
-using AndroidLiveWallpaperUtility.Custom;
 using Xama.JTPorts.ShapedView.Models;
 using Xama.JTPorts.ShapedView.PathCreators;
 
@@ -9,7 +8,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
 {
     public class ArcView : ViewShape
     {
-        public override float HeightPx
+        public float HeightPx
         {
             get => HeightPx;
             set { HeightPx = value; RequiresShapeUpdate(); }
@@ -21,13 +20,13 @@ namespace Xama.JTPorts.ShapedView.Shapes
             set => HeightPx = PxToDp(ArcHeightDp);
         }
 
-        public override ClipPosition ClipPosition
+        public BasePosition ClipPosition
         {
             get => ClipPosition;
             set { ClipPosition = value; RequiresShapeUpdate(); }
         }
 
-        public override CropDirection CropDirection
+        public CropDirection CropDirection
         {
             get => HeightPx > 0 ? CropDirection.Outside : CropDirection.Inside;
             set => CropDirection = value;
@@ -56,7 +55,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
             {
                 TypedArray attributes = context.ObtainStyledAttributes(attrs, Resource.Styleable.ArcView);
                 HeightPx = attributes.GetDimensionPixelSize(Resource.Styleable.ArcView_shape_arc_height, (int)HeightPx);
-                ClipPosition = (ClipPosition)attributes.GetInteger(Resource.Styleable.ArcView_shape_arc_position, (int)ClipPosition);
+                ClipPosition = (BasePosition)attributes.GetInteger(Resource.Styleable.ArcView_shape_arc_position, (int)ClipPosition);
                 attributes.Recycle();
             }
             SetClipPathCreator(new ArcClipPathCreator(ClipPosition, CropDirection, HeightPx));

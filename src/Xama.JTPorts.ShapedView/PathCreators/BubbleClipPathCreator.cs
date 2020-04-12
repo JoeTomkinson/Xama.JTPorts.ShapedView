@@ -4,7 +4,7 @@ using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class BubbleClipPathCreator : BasePathCreator
+    public class BubbleClipPathCreator : BaseClipPathCreator
     {
         public float _topLeftDiameter;
         public float _topRightDiameter;
@@ -14,7 +14,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
         private float _arrowHeightPx;
         private float _arrowWidthPx;
 
-        public BubbleClipPathCreator(ClipPosition clipPosition,
+        public BubbleClipPathCreator(BasePosition clipPosition,
             CropDirection cropPosition,
             float heightPx, float arrowHeightPx, float arrowWidthPx,
             float topLeftDiameter, float topRightDiameter,
@@ -48,10 +48,10 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             bottomLeftDiameter = bottomLeftDiameter < 0 ? 0 : bottomLeftDiameter;
             bottomRightDiameter = bottomRightDiameter < 0 ? 0 : bottomRightDiameter;
 
-            float spacingLeft = this.ClipPosition == ClipPosition.Left ? _arrowHeightPx : 0;
-            float spacingTop = this.ClipPosition == ClipPosition.Top ? _arrowHeightPx : 0;
-            float spacingRight = this.ClipPosition == ClipPosition.Right ? _arrowHeightPx : 0;
-            float spacingBottom = this.ClipPosition == ClipPosition.Bottom ? _arrowHeightPx : 0;
+            float spacingLeft = this.ClipPosition == BasePosition.Left ? _arrowHeightPx : 0;
+            float spacingTop = this.ClipPosition == BasePosition.Top ? _arrowHeightPx : 0;
+            float spacingRight = this.ClipPosition == BasePosition.Right ? _arrowHeightPx : 0;
+            float spacingBottom = this.ClipPosition == BasePosition.Bottom ? _arrowHeightPx : 0;
 
             float left = spacingLeft + myRect.Left;
             float top = spacingTop + myRect.Top;
@@ -63,7 +63,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             path.MoveTo(left + topLeftDiameter / 2f, top);
             //LEFT, TOP
 
-            if (ClipPosition == ClipPosition.Top)
+            if (ClipPosition == BasePosition.Top)
             {
                 path.LineTo(centerX - _arrowWidthPx, top);
                 path.LineTo(centerX, myRect.Top);
@@ -75,7 +75,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             path.QuadTo(right, top, right, top + topRightDiameter / 2);
             //RIGHT, TOP
 
-            if (ClipPosition == ClipPosition.Right)
+            if (ClipPosition == BasePosition.Right)
             {
                 path.LineTo(right, bottom - (bottom * (1 - _positionPer)) - _arrowWidthPx);
                 path.LineTo(myRect.Right, bottom - (bottom * (1 - _positionPer)));
@@ -86,7 +86,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             path.QuadTo(right, bottom, right - bottomRightDiameter / 2, bottom);
             //RIGHT, BOTTOM
 
-            if (ClipPosition == ClipPosition.Bottom)
+            if (ClipPosition == BasePosition.Bottom)
             {
                 path.LineTo(centerX + _arrowWidthPx, bottom);
                 path.LineTo(centerX, myRect.Bottom);
@@ -97,7 +97,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             path.QuadTo(left, bottom, left, bottom - bottomLeftDiameter / 2);
             //LEFT, BOTTOM
 
-            if (ClipPosition == ClipPosition.Left)
+            if (ClipPosition == BasePosition.Left)
             {
                 path.LineTo(left, bottom - (bottom * (1 - _positionPer)) + _arrowWidthPx);
                 path.LineTo(myRect.Left, bottom - (bottom * (1 - _positionPer)));

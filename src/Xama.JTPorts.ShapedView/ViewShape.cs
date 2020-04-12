@@ -1,5 +1,4 @@
-﻿using System;
-using Android.Content;
+﻿using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
 using Android.Graphics.Drawables;
@@ -7,23 +6,16 @@ using Android.OS;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using AndroidLiveWallpaperUtility.Custom.Managers;
 using AndroidX.Core.View;
-using Xama.JTPorts.ShapedView;
+using System;
 using Xama.JTPorts.ShapedView.Abstracts;
 using Xama.JTPorts.ShapedView.Managers;
 using Xama.JTPorts.ShapedView.Models;
 
-namespace AndroidLiveWallpaperUtility.Custom
+namespace Xama.JTPorts.ShapedView
 {
     public abstract class ViewShape : FrameLayout
     {
-        public abstract ClipPosition ClipPosition { get; set; }
-
-        public abstract CropDirection CropDirection { get; set; }
-
-        public abstract float HeightPx { get; set; }
-
         private Paint clipPaint = new Paint(PaintFlags.AntiAlias);
         private Path clipPath = new Path();
         protected PorterDuffXfermode pdMode = new PorterDuffXfermode(PorterDuff.Mode.DstOut);

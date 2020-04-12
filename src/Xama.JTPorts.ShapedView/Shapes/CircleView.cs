@@ -1,18 +1,102 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.Content;
+using Android.Content.Res;
+using Android.Graphics;
+using Android.Util;
+using System;
+using Xama.JTPorts.ShapedView.Models;
+using Xama.JTPorts.ShapedView.PathCreators;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
-    class CircleView
+    public class CircleView : ViewShape
     {
+        public float HeightPx
+        {
+            get => HeightPx;
+            set { HeightPx = value; RequiresShapeUpdate(); }
+        }
+
+        public float HeightDp
+        {
+            get => PxToDp(HeightPx);
+            set => HeightPx = PxToDp(HeightDp);
+        }
+
+        public BasePosition ClipPosition
+        {
+            get => ClipPosition;
+            set { ClipPosition = value; RequiresShapeUpdate(); }
+        }
+
+        public CropDirection CropDirection
+        {
+            get => HeightPx > 0 ? CropDirection.Outside : CropDirection.Inside;
+            set => CropDirection = value;
+        }
+
+        public float BorderWidth
+        {
+            get => BorderWidth;
+            set { BorderWidth = value; RequiresShapeUpdate(); }
+        }
+
+        public float BorderWidthdP
+        {
+            get => PxToDp(BorderWidth);
+            set { BorderWidth = DpToPx(value); }
+        }
+
+        public Color BorderColor
+        {
+            get => BorderColor;
+            set => BorderColor = value;
+        }
+
+        private Paint borderPaint = new Paint(PaintFlags.AntiAlias);
+
+        public CircleView(Context context) : base(context)
+        {
+            Init(context, null);
+        }
+
+        public CircleView(Context context, IAttributeSet attrs) : base(context, attrs)
+        {
+            Init(context, attrs);
+        }
+
+        public CircleView(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
+        {
+            Init(context, attrs);
+        }
+
+        private void Init(Context context, IAttributeSet attrs)
+        {
+            // apply defaults first
+            BorderWidth = 0f;
+            BorderColor = Color.White;
+
+            if (attrs != null)
+            {
+                TypedArray attributes = context.ObtainStyledAttributes(attrs, Resource.Styleable.CircleView);
+                BorderWidth = attributes.GetDimensionPixelSize(Resource.Styleable.CircleView_shape_circle_borderWidth, (int)BorderWidth);
+                BorderColor = attributes.GetColor(Resource.Styleable.CircleView_shape_circle_borderColor, BorderColor);
+                attributes.Recycle();
+            }
+
+            borderPaint.AntiAlias = true;
+            borderPaint.SetStyle(Paint.Style.Stroke);
+            SetClipPathCreator(new CircleClipPathCreator(ClipPosition, CropDirection, HeightPx));
+        }
+
+        protected override void DispatchDraw(Canvas canvas)
+        {
+            base.DispatchDraw(canvas);
+            if (BorderWidth > 0)
+            {
+                borderPaint.StrokeWidth = BorderWidth;
+                borderPaint.Color = BorderColor;
+                canvas.DrawCircle(Width / 2f, Height / 2f, Math.Min((Width - BorderWidth) / 2f, (Height - BorderWidth) / 2f), borderPaint);
+            }
+        }
     }
 }

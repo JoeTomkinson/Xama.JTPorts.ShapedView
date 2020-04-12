@@ -49,8 +49,12 @@
   <ItemGroup>
     <Compile Include="Models\PositionModels.cs" />
     <Compile Include="PathCreators\ArcClipPathCreator.cs" />
-    <Compile Include="PathCreators\BasePathCreator.cs" />
+    <Compile Include="PathCreators\BaseClipPathCreator.cs" />
     <Compile Include="PathCreators\BubbleClipPathCreator.cs" />
+    <Compile Include="PathCreators\CircleClipPathCreator.cs" />
+    <Compile Include="PathCreators\CurCornerPathCreator.cs" />
+    <Compile Include="PathCreators\DiagonalClipPathCreator.cs" />
+    <Compile Include="PathCreators\DottedEdgeClipPathCreator.cs" />
     <Compile Include="Providers\CustomOutlineProvider.cs" />
     <Compile Include="Managers\ClipManager.cs" />
     <Compile Include="Managers\ClipPathManager.cs" />
@@ -68,9 +72,6 @@
     <Compile Include="Shapes\StarView.cs" />
     <Compile Include="Shapes\TriangleView.cs" />
     <Compile Include="ViewShape.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.2.0" />

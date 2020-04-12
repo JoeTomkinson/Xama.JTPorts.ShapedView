@@ -1,6 +1,6 @@
 ﻿using Android.Graphics;
 
-namespace AndroidLiveWallpaperUtility.Custom.Managers
+namespace Xama.JTPorts.ShapedView.Managers
 {
     public interface IClipManager
     {

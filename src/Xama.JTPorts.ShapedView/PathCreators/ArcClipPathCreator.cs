@@ -4,9 +4,9 @@ using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class ArcClipPathCreator : BasePathCreator
+    public class ArcClipPathCreator : BaseClipPathCreator
     {
-        public ArcClipPathCreator(ClipPosition clipPosition, CropDirection cropPosition, float heightPx) : base(clipPosition, cropPosition, heightPx)
+        public ArcClipPathCreator(BasePosition clipPosition, CropDirection cropPosition, float heightPx) : base(clipPosition, cropPosition, heightPx)
         {
         }
 
@@ -20,7 +20,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
 
             switch (ClipPosition)
             {
-                case  ClipPosition.Bottom:
+                case  BasePosition.Bottom:
                     {
                         if (isCropInside)
                         {
@@ -40,7 +40,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         }
                         break;
                     }
-                case  ClipPosition.Top:
+                case  BasePosition.Top:
                     if (isCropInside)
                     {
                         path.MoveTo(0, height);
@@ -58,7 +58,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         path.Close();
                     }
                     break;
-                case  ClipPosition.Left:
+                case  BasePosition.Left:
                     if (isCropInside)
                     {
                         path.MoveTo(width, 0);
@@ -76,7 +76,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         path.Close();
                     }
                     break;
-                case  ClipPosition.Right:
+                case  BasePosition.Right:
                     if (isCropInside)
                     {
                         path.MoveTo(0, 0);

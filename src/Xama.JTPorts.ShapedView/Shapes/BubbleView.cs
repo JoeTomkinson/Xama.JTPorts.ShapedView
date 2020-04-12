@@ -1,7 +1,6 @@
 ﻿using Android.Content;
 using Android.Content.Res;
 using Android.Util;
-using AndroidLiveWallpaperUtility.Custom;
 using Xama.JTPorts.ShapedView.Models;
 using Xama.JTPorts.ShapedView.PathCreators;
 
@@ -9,25 +8,25 @@ namespace Xama.JTPorts.ShapedView.Shapes
 {
     public class BubbleView : ViewShape
     {
-        public override float HeightPx
+        public float HeightPx
         {
             get => HeightPx;
             set { HeightPx = value; RequiresShapeUpdate(); }
         }
 
-        public float ArcHeightDp
+        public float HeightDp
         {
             get => PxToDp(HeightPx);
-            set => HeightPx = PxToDp(ArcHeightDp);
+            set => HeightPx = PxToDp(HeightDp);
         }
 
-        public override ClipPosition ClipPosition
+        public BasePosition ClipPosition
         {
             get => ClipPosition;
             set { ClipPosition = value; RequiresShapeUpdate(); }
         }
 
-        public override CropDirection CropDirection
+        public CropDirection CropDirection
         {
             get => HeightPx > 0 ? CropDirection.Outside : CropDirection.Inside;
             set => CropDirection = value;
@@ -144,7 +143,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
             {
                 TypedArray attributes = context.ObtainStyledAttributes(attrs, Resource.Styleable.BubbleView);
                 BorderRadiusPx = attributes.GetDimensionPixelSize(Resource.Styleable.BubbleView_shape_bubble_borderRadius, (int)DpToPx(10));
-                ClipPosition = (ClipPosition)attributes.GetInteger(Resource.Styleable.BubbleView_shape_bubble_arrowPosition, (int)ClipPosition);
+                ClipPosition = (BasePosition)attributes.GetInteger(Resource.Styleable.BubbleView_shape_bubble_arrowPosition, (int)ClipPosition);
                 ArrowHeightPx = attributes.GetDimensionPixelSize(Resource.Styleable.BubbleView_shape_bubble_arrowHeight, (int)DpToPx(10));
                 ArrowWidthPx = attributes.GetDimensionPixelSize(Resource.Styleable.BubbleView_shape_bubble_arrowWidth, (int)DpToPx(10));
                 PositionPer = attributes.GetFloat(Resource.Styleable.BubbleView_arrow_posititon_percent, PositionPer);

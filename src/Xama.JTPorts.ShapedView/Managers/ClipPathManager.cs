@@ -1,7 +1,6 @@
 ﻿using Android.Graphics;
-using Xama.JTPorts.ShapedView.Managers;
 
-namespace AndroidLiveWallpaperUtility.Custom.Managers
+namespace Xama.JTPorts.ShapedView.Managers
 {
     public class ClipPathManager : IClipManager
     {

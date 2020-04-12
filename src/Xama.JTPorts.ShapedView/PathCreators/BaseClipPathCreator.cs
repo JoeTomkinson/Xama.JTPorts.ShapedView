@@ -4,15 +4,15 @@ using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public abstract class BasePathCreator : IClipPathCreator
+    public abstract class BaseClipPathCreator : IClipPathCreator
     {
         public CropDirection CropPosition { get; private set; }
 
-        public ClipPosition ClipPosition { get; private set; }
+        public BasePosition ClipPosition { get; private set; }
 
         public float HeightPx { get; private set; }
 
-        public BasePathCreator(ClipPosition clipPosition, CropDirection cropPosition, float heightPx)
+        public BaseClipPathCreator(BasePosition clipPosition, CropDirection cropPosition, float heightPx)
         {
             CropPosition = cropPosition;
             ClipPosition = clipPosition;
