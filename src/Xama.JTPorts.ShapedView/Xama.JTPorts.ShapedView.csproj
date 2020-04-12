@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstracts\CustomOutlineProvider.cs" />
+    <Compile Include="Providers\CustomOutlineProvider.cs" />
     <Compile Include="Managers\ClipManager.cs" />
     <Compile Include="Managers\ClipPathManager.cs" />
     <Compile Include="Managers\IClipPathCreator.cs" />
