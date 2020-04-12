@@ -1,15 +1,19 @@
 # Xama.JTPorts.ShapedView
+
+[![platform](https://img.shields.io/badge/platform-Xamarin.Android-brightgreen.svg)](https://www.xamarin.com/)
+[![API](https://img.shields.io/badge/API-10%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=10s)
+[![License: Apache](https://img.shields.io/github/license/DigitalSa1nt/Xama.JTPorts.ShapedView)](https://opensource.org/licenses/Apache-2.0)
+
+### Namespace: Xama.JTPorts.ShapedView
 Port of ShapeOfView by Florent37
 
-# Description
-Give a custom shape to any android view
-Useful for Material Design 2
+Give a custom shape to any android view. Useful for Material Design 2
 
 [CREATE SOME SAMPLE GIFS]
 
 # Download
 
-Nuget Package: [CREATA NUGET PACKAGE
+Nuget Package: [CREATE NUGET PACKAGE]
 
 # Sample
 
@@ -298,10 +302,10 @@ Please then make a `merge-request` after updated the README with a sample of you
 
 # TODO
 
-[] Tidy up / Finish this readme.
-[] Finish port of shapes.
-[] Create Nuget Package.
-[] See if we can't Csharp it's implementation a bit more.
+- [ ] Tidy up / Finish this readme.
+- [ ] Finish port of shapes.
+- [ ] Create Nuget Package.
+- [ ] See if we can't Csharp it's implementation a bit more.
 
 # HISTORY
 
