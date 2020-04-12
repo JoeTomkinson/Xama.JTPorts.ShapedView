@@ -1,4 +1,4 @@
-# Xamarin ShapedView
+# Xamarin.Android ShapedView
 ### Migrated to use the newer AndroidX Support Libraries
 
 [![platform](https://img.shields.io/badge/platform-Xamarin.Android-brightgreen.svg)](https://www.xamarin.com/)
