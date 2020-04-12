@@ -64,6 +64,5 @@ namespace AndroidLiveWallpaperUtility.Custom.Managers
         {
             this.clipPathCreator = createClipPath;
         }
-
     }
 }

@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\PositionModels.cs" />
+    <Compile Include="PathCreators\ArcClipPathCreator.cs" />
+    <Compile Include="PathCreators\BasePathCreator.cs" />
+    <Compile Include="PathCreators\BubbleClipPathCreator.cs" />
     <Compile Include="Providers\CustomOutlineProvider.cs" />
     <Compile Include="Managers\ClipManager.cs" />
     <Compile Include="Managers\ClipPathManager.cs" />
@@ -63,7 +67,7 @@
     <Compile Include="Shapes\RoundRectView.cs" />
     <Compile Include="Shapes\StarView.cs" />
     <Compile Include="Shapes\TriangleView.cs" />
-    <Compile Include="ShapeView.cs" />
+    <Compile Include="ViewShape.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -12,11 +12,18 @@ using AndroidX.Core.View;
 using Xama.JTPorts.ShapedView;
 using Xama.JTPorts.ShapedView.Abstracts;
 using Xama.JTPorts.ShapedView.Managers;
+using Xama.JTPorts.ShapedView.Models;
 
 namespace AndroidLiveWallpaperUtility.Custom
 {
-    public class ShapeView : FrameLayout
+    public abstract class ViewShape : FrameLayout
     {
+        public abstract ClipPosition ClipPosition { get; set; }
+
+        public abstract CropDirection CropDirection { get; set; }
+
+        public abstract float HeightPx { get; set; }
+
         private Paint clipPaint = new Paint(PaintFlags.AntiAlias);
         private Path clipPath = new Path();
         protected PorterDuffXfermode pdMode = new PorterDuffXfermode(PorterDuff.Mode.DstOut);
@@ -28,29 +35,19 @@ namespace AndroidLiveWallpaperUtility.Custom
         private Bitmap clipBitmap;
         private Path rectView = new Path();
 
-        public ShapeView(Context context) : base(context)
+        public ViewShape(Context context) : base(context)
         {
             Init(context, null);
         }
 
-        public ShapeView(Context context, IAttributeSet attrs) : base(context, attrs)
+        public ViewShape(Context context, IAttributeSet attrs) : base(context, attrs)
         {
             Init(context, attrs);
         }
 
-        public ShapeView(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
+        public ViewShape(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
         {
             Init(context, attrs);
-        }
-
-        public override void SetBackgroundResource(int resid)
-        {
-            //
-        }
-
-        public override void SetBackgroundColor(Color color)
-        {
-            //
         }
 
         private void Init(Context context, IAttributeSet attrs)
