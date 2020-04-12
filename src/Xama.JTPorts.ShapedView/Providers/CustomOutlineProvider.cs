@@ -1,7 +1,7 @@
 ﻿using Android.Graphics;
 using Android.Views;
-using AndroidLiveWallpaperUtility.Custom.Managers;
 using System;
+using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.Abstracts
 {
@@ -25,7 +25,7 @@ namespace Xama.JTPorts.ShapedView.Abstracts
                     {
                         outline.SetConvexPath(shadowConvexPath);
                     }
-                    catch (Exception e)
+                    catch
                     {
                         //
                     }

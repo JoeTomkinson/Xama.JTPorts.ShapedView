@@ -10,7 +10,6 @@ using AndroidX.Core.View;
 using System;
 using Xama.JTPorts.ShapedView.Abstracts;
 using Xama.JTPorts.ShapedView.Managers;
-using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView
 {
