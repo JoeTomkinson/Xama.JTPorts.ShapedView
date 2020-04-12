@@ -304,25 +304,25 @@ Feel free to fork this project, and add customs shapes just as you would do for 
 
 Please then make a `merge-request` after updated the README with a sample of your shape, including a preview
 
-# TODO
+## Current ToDo
 
 - [ ] Tidy up / Finish this readme.
 - [ ] Finish port of shapes.
 - [ ] Create Nuget Package.
 - [ ] See if we can't Csharp it's implementation a bit more.
 
-# HISTORY
+## Version History
 
 **1.0.0** - First port of ViewShape version **1.4.5** 
 
-# Credits
+## Credits
 
 Original Author: [Florent Champigny](https://github.com/florent37)
 
 License
 --------
 
-    Copyright 2017 Florent37, Inc.
+    Copyright 2020 Joe Tomkinson.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
