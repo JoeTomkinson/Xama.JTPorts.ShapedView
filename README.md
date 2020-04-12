@@ -7,7 +7,7 @@
 #### Migrated to use the newer AndroidX Support Libraries
 Port of [ShapeOfView](https://github.com/florent37/ShapeOfView) originally created by [Florent37](https://github.com/florent37)
 
-Give a custom shape to any android view. Useful for Material Design 2
+> Give a custom shape to any android view. Useful for Material Design 2
 
 [CREATE SOME SAMPLE GIFS]
 
