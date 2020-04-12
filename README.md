@@ -19,8 +19,6 @@ This solution only references AndroidX support libraries, and as such you may ne
 
 Nuget Package: [CREATE NUGET PACKAGE]
 
-# Sample
-
 # Use implemented shapes
 
 ViewShape **disable** the `background` property of your view, 
@@ -304,20 +302,20 @@ Feel free to fork this project, and add customs shapes just as you would do for 
 
 Please then make a `merge-request` after updated the README with a sample of your shape, including a preview
 
-## Current ToDo
+# Current ToDo
 
 - [ ] Tidy up / Finish this readme.
 - [ ] Finish port of shapes.
 - [ ] Create Nuget Package.
 - [ ] See if we can't Csharp it's implementation a bit more.
 
-## Version History
+# Version History
 
 **1.0.0** - First port of ViewShape version **1.4.5** 
 
-## Credits
+# Credits
 
-Original Author: [Florent Champigny](https://github.com/florent37)
+Author of ShapeOfView: [Florent Champigny](https://github.com/florent37) - This was ported from his initial Java library.
 
 License
 --------
