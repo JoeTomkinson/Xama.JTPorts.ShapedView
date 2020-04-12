@@ -317,7 +317,7 @@ Please then make a `merge-request` after updated the README with a sample of you
 
 # Credits
 
-Original Author: Florent Champigny [http://www.florentchampigny.com/](http://www.florentchampigny.com/)
+Original Author: [Florent Champigny](https://github.com/florent37)
 
 License
 --------
