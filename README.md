@@ -14,10 +14,8 @@ This solution only references AndroidX support libraries, and as such you may ne
 
 [CREATE SOME SAMPLE GIFS]
 
-
-
 # Download
-![nugetIcon](https://raw.githubusercontent.com/DigitalSa1nt/Xama.JTPorts.ShapedView/master/nuget/nugetIcon.png)
+![nugetIcon](https://raw.githubusercontent.com/DigitalSa1nt/Xama.JTPorts.ShapedView/master/nuget/nugetIcon-androidified.png)
 
 Nuget Package: [link](https://www.nuget.org/packages/Xama.JTPorts.ShapedView/1.0.1#)
 
