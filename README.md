@@ -311,6 +311,7 @@ Please then make a `merge-request` after updated the README with a sample of you
 
 # Version History
 
+**1.0.1** - Added/Amended missing nugetspec configurations.
 **1.0.0** - First port of ShapeOfView version **1.4.5** 
 
 # Credits
