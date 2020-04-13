@@ -1,48 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.Content.Res;
-using Android.Graphics;
-using Android.OS;
-using Android.Runtime;
 using Android.Util;
-using Android.Views;
-using Android.Widget;
-using Xama.JTPorts.ShapedView.Models;
 using Xama.JTPorts.ShapedView.PathCreators;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
     public class CutCornerView : ViewShape
     {
-        public float HeightPx
-        {
-            get => HeightPx;
-            set { HeightPx = value; RequiresShapeUpdate(); }
-        }
-
-        public float HeightDp
-        {
-            get => PxToDp(HeightPx);
-            set => HeightPx = PxToDp(HeightDp);
-        }
-
-        public BasePosition ClipPosition
-        {
-            get => ClipPosition;
-            set { ClipPosition = value; RequiresShapeUpdate(); }
-        }
-
-        public CropDirection CropDirection
-        {
-            get => HeightPx > 0 ? CropDirection.Outside : CropDirection.Inside;
-            set => CropDirection = value;
-        }
-
         public float TopLeftCutSizePx
         {
             get => TopLeftCutSizePx;
@@ -128,7 +92,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 BottomRightCutSizePx = attributes.GetDimensionPixelSize(Resource.Styleable.CutCornerView_shape_cutCorner_bottomRightSize, (int)BottomRightCutSizePx);
                 attributes.Recycle();
             }
-            SetClipPathCreator(new CurCornerPathCreator(ClipPosition, CropDirection, HeightPx, TopLeftCutSizePx, TopRightCutSizePx, BottomRightCutSizePx, BottomLeftCutSizePx));
+            SetClipPathCreator(new CurCornerPathCreator(TopLeftCutSizePx, TopRightCutSizePx, BottomRightCutSizePx, BottomLeftCutSizePx));
         }
     }
 }

@@ -1,23 +1,23 @@
 ﻿using Android.Graphics;
 using Java.Lang;
-using Xama.JTPorts.ShapedView.Models;
+using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class CircleClipPathCreator : BaseClipPathCreator
+    public class CircleClipPathCreator : IClipPathCreator
     {
-        public CircleClipPathCreator(BasePosition clipPosition, CropDirection cropPosition, float heightPx) : base(clipPosition, cropPosition, heightPx)
+        public CircleClipPathCreator() 
         {
         }
 
-        public override Path CreateClipPath(int width, int height)
+        public Path CreateClipPath(int width, int height)
         {
             Path path = new Path();
             path.AddCircle(width / 2f, height / 2f, Math.Min(width / 2f, height / 2f), Path.Direction.Cw);
             return path;
         }
 
-        public override bool RequiresBitmap()
+        public bool RequiresBitmap()
         {
             return false;
         }

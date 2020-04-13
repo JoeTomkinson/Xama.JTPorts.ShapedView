@@ -1,24 +1,32 @@
 ﻿using Android.Graphics;
 using Java.Lang;
+using Xama.JTPorts.ShapedView.Managers;
 using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class ArcClipPathCreator : BaseClipPathCreator
+    public class ArcClipPathCreator : IClipPathCreator
     {
-        public ArcClipPathCreator(BasePosition clipPosition, CropDirection cropPosition, float heightPx) : base(clipPosition, cropPosition, heightPx)
+        private CropDirection _cropPosition;
+        private BasePosition _clipPosition;
+        private float _heightPx;
+
+        public ArcClipPathCreator(BasePosition clipPosition, CropDirection cropPosition, float heightPx)
         {
+            _cropPosition = cropPosition;
+            _clipPosition = clipPosition;
+            _heightPx = heightPx;
         }
 
-        public override Path CreateClipPath(int width, int height)
+        public Path CreateClipPath(int width, int height)
         {
             Path path = new Path();
 
-            bool isCropInside = CropPosition == CropDirection.Inside;
+            bool isCropInside = _cropPosition == CropDirection.Inside;
 
-            float arcHeightAbs = Math.Abs(HeightPx);
+            float arcHeightAbs = Math.Abs(_heightPx);
 
-            switch (ClipPosition)
+            switch (_clipPosition)
             {
                 case  BasePosition.Bottom:
                     {
@@ -101,7 +109,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             return path;
         }
 
-        public override bool RequiresBitmap()
+        public bool RequiresBitmap()
         {
             return false;
         }

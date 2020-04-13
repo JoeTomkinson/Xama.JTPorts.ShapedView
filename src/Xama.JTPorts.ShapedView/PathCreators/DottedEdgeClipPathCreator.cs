@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.Graphics;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+﻿using Android.Graphics;
+using Xama.JTPorts.ShapedView.Managers;
 using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class DottedEdgeClipPathCreator : BaseClipPathCreator
+    public class DottedEdgeClipPathCreator : IClipPathCreator
     {
         private RectF _rectF = new RectF();
 
@@ -27,9 +17,6 @@ namespace Xama.JTPorts.ShapedView.PathCreators
         private float _dotSpacing = 0f;
 
         public DottedEdgeClipPathCreator(
-            BasePosition clipPosition,
-            CropDirection cropPosition,
-            float heightPx, 
             float topLeftCutSize,
             float topRightCutSize,
             float bottomRightCutSize,
@@ -37,7 +24,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             BasePosition dotEdgePosition,
             float dotRadius,
             float dotSpacing
-            ) : base(clipPosition, cropPosition, heightPx)
+            ) 
         {
             _topLeftCutSize = topLeftCutSize;
             _topRightCutSize = topRightCutSize;
@@ -48,13 +35,13 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             _dotSpacing = dotSpacing;
         }
 
-        public override Path CreateClipPath(int width, int height)
+        public Path CreateClipPath(int width, int height)
         {
             _rectF.Set(0, 0, width, height);
             return generatePath(_rectF, _topLeftCutSize, _topRightCutSize, _bottomRightCutSize, _bottomLeftCutSize);
         }
 
-        public override bool RequiresBitmap()
+        public bool RequiresBitmap()
         {
             return false;
         }

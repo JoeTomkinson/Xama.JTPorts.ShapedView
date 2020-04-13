@@ -1,10 +1,11 @@
 ﻿using Android.Graphics;
 using Java.Lang;
+using Xama.JTPorts.ShapedView.Managers;
 using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class DiagonalClipPathCreator : BaseClipPathCreator
+    public class DiagonalClipPathCreator : IClipPathCreator
     {
         private DiagonalDirection _diagonalDirection;
         private BasePosition _diagonalPosition;
@@ -14,25 +15,26 @@ namespace Xama.JTPorts.ShapedView.PathCreators
         private float _paddingTop;
         private float _paddingBottom;
 
-        public DiagonalClipPathCreator(BasePosition clipPosition,
-            CropDirection cropPosition, float heightPx,
-            DiagonalDirection diagonalDirection, BasePosition diagonalPosition, float diagonalAngle,
+        public DiagonalClipPathCreator(
+            DiagonalDirection diagonalDirection,
+            BasePosition diagonalPosition,
+            float diagonalAngle,
             float paddingLeft,
              float paddingRight,
              float paddingTop,
              float paddingBottom
-            ) : base(clipPosition, cropPosition, heightPx)
+            )
         {
             _diagonalDirection = diagonalDirection;
             _diagonalPosition = diagonalPosition;
-            _diagonalAngle = diagonalAngle; 
+            _diagonalAngle = diagonalAngle;
             _paddingLeft = paddingLeft;
             _paddingRight = paddingRight;
             _paddingTop = paddingTop;
             _paddingBottom = paddingBottom;
         }
 
-        public override Path CreateClipPath(int width, int height)
+        public Path CreateClipPath(int width, int height)
         {
             Path path = new Path();
 
@@ -118,7 +120,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             return path;
         }
 
-        public override bool RequiresBitmap()
+        public bool RequiresBitmap()
         {
             return false;
         }

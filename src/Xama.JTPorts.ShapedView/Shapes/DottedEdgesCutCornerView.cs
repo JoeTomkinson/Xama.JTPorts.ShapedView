@@ -8,28 +8,10 @@ namespace Xama.JTPorts.ShapedView.Shapes
 {
     public class DottedEdgesCutCornerView : ViewShape
     {
-        public float HeightPx
-        {
-            get => HeightPx;
-            set { HeightPx = value; RequiresShapeUpdate(); }
-        }
-
-        public float HeightDp
-        {
-            get => PxToDp(HeightPx);
-            set => HeightPx = PxToDp(HeightDp);
-        }
-
         public BasePosition DotEdgePosition
         {
             get => DotEdgePosition;
             set { DotEdgePosition = value; RequiresShapeUpdate(); }
-        }
-
-        public CropDirection CropDirection
-        {
-            get => HeightPx > 0 ? CropDirection.Outside : CropDirection.Inside;
-            set => CropDirection = value;
         }
 
         public float TopLeftCutSize
@@ -164,7 +146,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 DotSpacing = attributes.GetDimensionPixelSize(Resource.Styleable.DottedEdgesCutCornerView_shape_dot_spacing, (int)DotSpacing);
                 attributes.Recycle();
             }
-            SetClipPathCreator(new DottedEdgeClipPathCreator(BasePosition.None, CropDirection, HeightPx, TopLeftCutSize, TopRightCutSize, BottomRightCutSize, BottomLeftCutSize, DotEdgePosition, DotRadius, DotSpacing));
+            SetClipPathCreator(new DottedEdgeClipPathCreator(TopLeftCutSize, TopRightCutSize, BottomRightCutSize, BottomLeftCutSize, DotEdgePosition, DotRadius, DotSpacing));
         }
     }
 }

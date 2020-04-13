@@ -26,12 +26,6 @@ namespace Xama.JTPorts.ShapedView.Shapes
             set { ClipPosition = value; RequiresShapeUpdate(); }
         }
 
-        public CropDirection CropDirection
-        {
-            get => HeightPx > 0 ? CropDirection.Outside : CropDirection.Inside;
-            set => CropDirection = value;
-        }
-
         public float BorderRadiusPx
         {
             get
@@ -149,7 +143,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 PositionPer = attributes.GetFloat(Resource.Styleable.BubbleView_arrow_posititon_percent, PositionPer);
                 attributes.Recycle();
             }
-            SetClipPathCreator(new BubbleClipPathCreator(ClipPosition, CropDirection, HeightPx,ArrowHeightPx, ArrowWidthPx, BorderRadiusPx, BorderRadiusPx, BorderRadiusPx, BorderRadiusPx));
+            SetClipPathCreator(new BubbleClipPathCreator(ClipPosition, HeightPx, ArrowHeightPx, ArrowWidthPx, BorderRadiusPx, BorderRadiusPx, BorderRadiusPx, BorderRadiusPx));
         }
     }
 }

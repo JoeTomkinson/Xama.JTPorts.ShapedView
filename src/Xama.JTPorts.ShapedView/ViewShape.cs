@@ -211,7 +211,7 @@ namespace Xama.JTPorts.ShapedView
             RequiresShapeUpdate();
         }
 
-        public void RequiresShapeUpdate()
+        public virtual void RequiresShapeUpdate()
         {
             this.requiersShapeUpdate = true;
             PostInvalidate();

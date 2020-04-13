@@ -3,37 +3,12 @@ using Android.Content.Res;
 using Android.Graphics;
 using Android.Util;
 using System;
-using Xama.JTPorts.ShapedView.Models;
 using Xama.JTPorts.ShapedView.PathCreators;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
     public class CircleView : ViewShape
     {
-        public float HeightPx
-        {
-            get => HeightPx;
-            set { HeightPx = value; RequiresShapeUpdate(); }
-        }
-
-        public float HeightDp
-        {
-            get => PxToDp(HeightPx);
-            set => HeightPx = PxToDp(HeightDp);
-        }
-
-        public BasePosition ClipPosition
-        {
-            get => ClipPosition;
-            set { ClipPosition = value; RequiresShapeUpdate(); }
-        }
-
-        public CropDirection CropDirection
-        {
-            get => HeightPx > 0 ? CropDirection.Outside : CropDirection.Inside;
-            set => CropDirection = value;
-        }
-
         public float BorderWidth
         {
             get => BorderWidth;
@@ -85,7 +60,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
             borderPaint.AntiAlias = true;
             borderPaint.SetStyle(Paint.Style.Stroke);
-            SetClipPathCreator(new CircleClipPathCreator(ClipPosition, CropDirection, HeightPx));
+            SetClipPathCreator(new CircleClipPathCreator());
         }
 
         protected override void DispatchDraw(Canvas canvas)

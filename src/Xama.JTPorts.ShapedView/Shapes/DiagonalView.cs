@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.Content.Res;
-using Android.OS;
-using Android.Runtime;
 using Android.Util;
-using Android.Views;
-using Android.Widget;
 using Xama.JTPorts.ShapedView.Models;
 using Xama.JTPorts.ShapedView.PathCreators;
 
@@ -18,30 +8,6 @@ namespace Xama.JTPorts.ShapedView.Shapes
 {
     public class DiagonalView : ViewShape
     {
-        public float HeightPx
-        {
-            get => HeightPx;
-            set { HeightPx = value; RequiresShapeUpdate(); }
-        }
-
-        public float HeightDp
-        {
-            get => PxToDp(HeightPx);
-            set => HeightPx = PxToDp(HeightDp);
-        }
-
-        public BasePosition ClipPosition
-        {
-            get => ClipPosition;
-            set { ClipPosition = value; RequiresShapeUpdate(); }
-        }
-
-        public CropDirection CropDirection
-        {
-            get => HeightPx > 0 ? CropDirection.Outside : CropDirection.Inside;
-            set => CropDirection = value;
-        }
-
         public DiagonalDirection DiagonalDirection
         {
             get { return DiagonalDirection; }
@@ -87,7 +53,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 DiagonalPosition = (BasePosition)attributes.GetInteger(Resource.Styleable.DiagonalView_shape_diagonal_position, (int)DiagonalPosition);
                 attributes.Recycle();
             }
-            SetClipPathCreator(new DiagonalClipPathCreator(ClipPosition, CropDirection, HeightPx, DiagonalDirection, DiagonalPosition,DiagonalAngle, PaddingLeft, PaddingRight, PaddingTop, PaddingBottom));
+            SetClipPathCreator(new DiagonalClipPathCreator(DiagonalDirection, DiagonalPosition,DiagonalAngle, PaddingLeft, PaddingRight, PaddingTop, PaddingBottom));
         }
     }
 }

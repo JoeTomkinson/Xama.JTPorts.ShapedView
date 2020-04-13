@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.Graphics;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Xama.JTPorts.ShapedView.Models;
+﻿using Android.Graphics;
+using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class CurCornerPathCreator : BaseClipPathCreator
+    public class CurCornerPathCreator : IClipPathCreator
     {
         float _topLeftCutSizePx, _topRightCutSizePx, _bottomRightCutSizePx, _bottomLeftCutSizePx;
 
-        public CurCornerPathCreator(BasePosition clipPosition, CropDirection cropPosition, float heightPx,
-            float topLeftCutSizePx, float topRightCutSizePx, float bottomRightCutSizePx, float bottomLeftCutSizePx) : base(clipPosition, cropPosition, heightPx)
+        public CurCornerPathCreator(
+            float topLeftCutSizePx, 
+            float topRightCutSizePx, 
+            float bottomRightCutSizePx, 
+            float bottomLeftCutSizePx)
         {
             _topLeftCutSizePx = topLeftCutSizePx;
             _topRightCutSizePx = topRightCutSizePx;
@@ -27,13 +19,13 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             _bottomLeftCutSizePx = bottomLeftCutSizePx;
         }
 
-        public override Path CreateClipPath(int width, int height)
+        public Path CreateClipPath(int width, int height)
         {
             var rectF = new RectF(0, 0, width, height);
             return GeneratePath(rectF, _topLeftCutSizePx, _topRightCutSizePx, _bottomRightCutSizePx, _bottomLeftCutSizePx);
         }
 
-        public override bool RequiresBitmap()
+        public bool RequiresBitmap()
         {
             return false;
         }
