@@ -18,9 +18,7 @@ namespace Xama.JTPorts.ShapedView
         private Paint clipPaint = new Paint(PaintFlags.AntiAlias);
         private Path clipPath = new Path();
         protected PorterDuffXfermode pdMode = new PorterDuffXfermode(PorterDuff.Mode.DstOut);
-#nullable enable
-        protected Drawable? drawable = null;
-#nullable disable
+        protected Drawable drawable = null;
         private IClipManager clipManager = new ClipPathManager();
         private bool requiersShapeUpdate = true;
         private Bitmap clipBitmap;
@@ -194,7 +192,7 @@ namespace Xama.JTPorts.ShapedView
                         {
                             OutlineProvider = new CustomOutlineProvider(clipManager);
                         }
-                        catch (Exception e)
+                        catch
                         {
                             //
                         }

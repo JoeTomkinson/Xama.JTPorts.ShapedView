@@ -20,7 +20,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             BasePosition clipPosition,
             float heightPx, float arrowHeightPx, float arrowWidthPx,
             float topLeftDiameter, float topRightDiameter,
-            float bottomRightDiameter, float bottomLeftDiameter)
+            float bottomRightDiameter, float bottomLeftDiameter, float positionPer)
         {
             this._clipPosition = clipPosition;
             this._topLeftDiameter = topLeftDiameter;
@@ -29,6 +29,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             this._bottomLeftDiameter = bottomLeftDiameter;
             this._arrowHeightPx = arrowHeightPx;
             this._arrowWidthPx = arrowWidthPx;
+            this._positionPer = positionPer;
         }
 
         public Path CreateClipPath(int width, int height)

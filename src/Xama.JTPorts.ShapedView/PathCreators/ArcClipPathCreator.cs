@@ -102,8 +102,6 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         path.Close();
                     }
                     break;
-                default:
-                    return default;
             }
 
             return path;

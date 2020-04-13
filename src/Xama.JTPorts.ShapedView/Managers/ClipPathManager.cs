@@ -26,12 +26,10 @@ namespace Xama.JTPorts.ShapedView.Managers
             return paint;
         }
 
-#nullable enable
-        public Path? GetShadowConvexPath()
+        public Path GetShadowConvexPath()
         {
             return path;
         }
-#nullable disable
 
         public bool RequiresBitmap()
         {
@@ -48,8 +46,7 @@ namespace Xama.JTPorts.ShapedView.Managers
             }
         }
 
-#nullable enable
-        protected Path? CreateClipPath(int width, int height)
+        protected Path CreateClipPath(int width, int height)
         {
             if (clipPathCreator != null)
             {
@@ -57,7 +54,6 @@ namespace Xama.JTPorts.ShapedView.Managers
             }
             return null;
         }
-#nullable disable
 
         public void SetClipPathCreator(IClipPathCreator createClipPath)
         {

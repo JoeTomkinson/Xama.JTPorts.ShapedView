@@ -19,6 +19,18 @@
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidUseAapt2>true</AndroidUseAapt2>
+    <PackageId>Xama.JTPorts.ShapedView</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageIcon>nugetIcon.png</PackageIcon>
+    <Description>Give a custom shape to any android view</Description>
+    <Authors>Joe Tomkinson</Authors>
+    <Title>Xama.JTPorts.ShapedView</Title>
+    <Copyright />
+    <PackageProjectUrl>https://github.com/DigitalSa1nt/Xama.JTPorts.ShapedView</PackageProjectUrl>
+    <Owners />
+    <PackageLicenseUrl>https://github.com/DigitalSa1nt/Xama.JTPorts.ShapedView/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>1.0.0 - First port of ShapeOfView version 1.4.5</PackageReleaseNotes>
+    <Summary>Give a custom shape to any android view</Summary>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="Assets\nugetIcon.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
@@ -77,12 +92,19 @@
     <Compile Include="ViewShape.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging">
+      <Version>0.2.2</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.2.0" />
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.Core.UI" Version="1.0.0" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.2.0" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.1.0-rc3" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidAsset Include="Assets\nugetIcon.png" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\attrs.xml" />
   </ItemGroup>
