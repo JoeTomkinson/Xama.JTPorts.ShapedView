@@ -20,17 +20,20 @@
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <PackageId>Xama.JTPorts.ShapedView</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <PackageIcon>nugetIcon.png</PackageIcon>
     <Description>Give a custom shape to any android view</Description>
     <Authors>Joe Tomkinson</Authors>
     <Title>Xama.JTPorts.ShapedView</Title>
-    <Copyright />
+    <Copyright>Joe Tomkinson</Copyright>
     <PackageProjectUrl>https://github.com/DigitalSa1nt/Xama.JTPorts.ShapedView</PackageProjectUrl>
-    <Owners />
+    <Owners>Joe Tomkinson</Owners>
     <PackageLicenseUrl>https://github.com/DigitalSa1nt/Xama.JTPorts.ShapedView/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>1.0.0 - First port of ShapeOfView version 1.4.5</PackageReleaseNotes>
+    <PackageReleaseNotes>1.0.1 - Adjusted some nugetspec configurations
+1.0.0 - First port of ShapeOfView version 1.4.5</PackageReleaseNotes>
     <Summary>Give a custom shape to any android view</Summary>
+    <PackageIconUrl>https://raw.githubusercontent.com/DigitalSa1nt/Xama.JTPorts.ShapedView/master/nuget/nugetIcon.png</PackageIconUrl>
+    <NeutralLanguage>En</NeutralLanguage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,7 +53,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Assets\nugetIcon.png" Pack="true" PackagePath=""/>
+    <None Include="Assets\nugetIcon.png" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
