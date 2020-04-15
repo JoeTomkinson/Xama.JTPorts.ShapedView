@@ -2,6 +2,7 @@
 [![platform](https://img.shields.io/badge/platform-Xamarin.Android-purple.svg)](https://www.xamarin.com/)
 [![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
 [![License: Apache](https://img.shields.io/github/license/DigitalSa1nt/Xama.JTPorts.ShapedView)](https://opensource.org/licenses/Apache-2.0)
+[![Nuget](https://img.shields.io/nuget/v/Xama.JTPorts.ShapedView)](https://www.nuget.org/packages/Xama.JTPorts.ShapedView/1.0.1#)
 
 ### Namespace: Xama.JTPorts.ShapedView
 Port of [ShapeOfView](https://github.com/florent37/ShapeOfView) originally created by [Florent37](https://github.com/florent37)
@@ -13,11 +14,10 @@ This solution only references AndroidX support libraries, and as such you may ne
 
 [CREATE SOME SAMPLE GIFS]
 
-
-
 # Download
+![nugetIcon](https://raw.githubusercontent.com/DigitalSa1nt/Xama.JTPorts.ShapedView/master/nuget/nugetIcon-androidified.png)
 
-Nuget Package: [CREATE NUGET PACKAGE]
+Nuget Package: [link](https://www.nuget.org/packages/Xama.JTPorts.ShapedView/1.0.1#)
 
 # Use implemented shapes
 
