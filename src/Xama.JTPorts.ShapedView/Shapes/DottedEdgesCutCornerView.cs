@@ -8,7 +8,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
 {
     public class DottedEdgesCutCornerView : ViewShape
     {
-        public BasePosition DotEdgePosition
+        public DotEdgePosition DotEdgePosition
         {
             get => DotEdgePosition;
             set { DotEdgePosition = value; RequiresShapeUpdate(); }
@@ -141,7 +141,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 TopRightCutSize = attributes.GetDimensionPixelSize(Resource.Styleable.DottedEdgesCutCornerView_shape_dottedEdgesCutCorner_topRightSize, (int)TopRightCutSize);
                 BottomLeftCutSize = attributes.GetDimensionPixelSize(Resource.Styleable.DottedEdgesCutCornerView_shape_dottedEdgesCutCorner_bottomLeftSize, (int)BottomLeftCutSize);
                 BottomRightCutSize = attributes.GetDimensionPixelSize(Resource.Styleable.DottedEdgesCutCornerView_shape_dottedEdgesCutCorner_bottomRightSize, (int)BottomRightCutSize);
-                DotEdgePosition = (BasePosition)attributes.GetInteger(Resource.Styleable.DottedEdgesCutCornerView_shape_edge_position, (int)BasePosition.None);
+                DotEdgePosition = (DotEdgePosition)attributes.GetInteger(Resource.Styleable.DottedEdgesCutCornerView_shape_edge_position, (int)DotEdgePosition.None);
                 DotRadius = attributes.GetDimensionPixelSize(Resource.Styleable.DottedEdgesCutCornerView_shape_dot_radius, (int)DotRadius);
                 DotSpacing = attributes.GetDimensionPixelSize(Resource.Styleable.DottedEdgesCutCornerView_shape_dot_spacing, (int)DotSpacing);
                 attributes.Recycle();

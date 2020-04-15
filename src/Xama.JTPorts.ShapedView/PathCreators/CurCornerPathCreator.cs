@@ -3,7 +3,7 @@ using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class CurCornerPathCreator : IClipPathCreator
+    public class CurCornerPathCreator : Java.Lang.Object, IClipPathCreator
     {
         float _topLeftCutSizePx, _topRightCutSizePx, _bottomRightCutSizePx, _bottomLeftCutSizePx;
 

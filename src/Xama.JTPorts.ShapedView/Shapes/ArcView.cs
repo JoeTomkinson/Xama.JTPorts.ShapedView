@@ -20,7 +20,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
             set => HeightPx = PxToDp(ArcHeightDp);
         }
 
-        public BasePosition ClipPosition
+        public ArcPosition ClipPosition
         {
             get => ClipPosition;
             set { ClipPosition = value; RequiresShapeUpdate(); }
@@ -55,7 +55,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
             {
                 TypedArray attributes = context.ObtainStyledAttributes(attrs, Resource.Styleable.ArcView);
                 HeightPx = attributes.GetDimensionPixelSize(Resource.Styleable.ArcView_shape_arc_height, (int)HeightPx);
-                ClipPosition = (BasePosition)attributes.GetInteger(Resource.Styleable.ArcView_shape_arc_position, (int)ClipPosition);
+                ClipPosition = (ArcPosition)attributes.GetInteger(Resource.Styleable.ArcView_shape_arc_position, (int)ClipPosition);
                 attributes.Recycle();
             }
             SetClipPathCreator(new ArcClipPathCreator(ClipPosition, CropDirection, HeightPx));

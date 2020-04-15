@@ -5,10 +5,10 @@ using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class DiagonalClipPathCreator : IClipPathCreator
+    public class DiagonalClipPathCreator : Java.Lang.Object, IClipPathCreator
     {
         private DiagonalDirection _diagonalDirection;
-        private BasePosition _diagonalPosition;
+        private DiagonalPosition _diagonalPosition;
         private float _diagonalAngle;
         private float _paddingLeft;
         private float _paddingRight;
@@ -16,8 +16,8 @@ namespace Xama.JTPorts.ShapedView.PathCreators
         private float _paddingBottom;
 
         public DiagonalClipPathCreator(
-            DiagonalDirection diagonalDirection,
-            BasePosition diagonalPosition,
+            int diagonalDirection,
+            int diagonalPosition,
             float diagonalAngle,
             float paddingLeft,
              float paddingRight,
@@ -25,8 +25,8 @@ namespace Xama.JTPorts.ShapedView.PathCreators
              float paddingBottom
             )
         {
-            _diagonalDirection = diagonalDirection;
-            _diagonalPosition = diagonalPosition;
+            _diagonalDirection = (DiagonalDirection)diagonalDirection;
+            _diagonalPosition = (DiagonalPosition)diagonalPosition;
             _diagonalAngle = diagonalAngle;
             _paddingLeft = paddingLeft;
             _paddingRight = paddingRight;
@@ -44,7 +44,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
 
             switch (_diagonalPosition)
             {
-                case BasePosition.Bottom:
+                case DiagonalPosition.Bottom:
                     if (isDirectionLeft)
                     {
                         path.MoveTo(_paddingLeft, _paddingRight);
@@ -62,7 +62,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         path.Close();
                     }
                     break;
-                case BasePosition.Top:
+                case DiagonalPosition.Top:
                     if (isDirectionLeft)
                     {
                         path.MoveTo(width - _paddingRight, height - _paddingBottom);
@@ -80,7 +80,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         path.Close();
                     }
                     break;
-                case BasePosition.Right:
+                case DiagonalPosition.Right:
                     if (isDirectionLeft)
                     {
                         path.MoveTo(_paddingLeft, _paddingTop);
@@ -98,7 +98,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         path.Close();
                     }
                     break;
-                case BasePosition.Left:
+                case DiagonalPosition.Left:
                     if (isDirectionLeft)
                     {
                         path.MoveTo(_paddingLeft + perpendicularHeight, _paddingTop);

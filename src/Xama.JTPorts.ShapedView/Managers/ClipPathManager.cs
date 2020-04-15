@@ -2,7 +2,7 @@
 
 namespace Xama.JTPorts.ShapedView.Managers
 {
-    public class ClipPathManager : IClipManager
+    public class ClipPathManager : Java.Lang.Object, IClipManager
     {
         protected Path path = new Path();
         private Paint paint = new Paint(PaintFlags.AntiAlias);

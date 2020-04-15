@@ -3,7 +3,7 @@ using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class TriangleClipPathCreator : IClipPathCreator
+    public class TriangleClipPathCreator : Java.Lang.Object, IClipPathCreator
     {
         private float _percentBottom;
         private float _percentLeft;

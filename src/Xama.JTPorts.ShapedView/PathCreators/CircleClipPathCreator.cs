@@ -4,7 +4,7 @@ using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class CircleClipPathCreator : IClipPathCreator
+    public class CircleClipPathCreator : Java.Lang.Object, IClipPathCreator
     {
         public CircleClipPathCreator() 
         {

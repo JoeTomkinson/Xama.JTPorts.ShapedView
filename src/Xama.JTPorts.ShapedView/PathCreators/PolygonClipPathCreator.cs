@@ -4,7 +4,7 @@ using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class PolygonClipPathCreator : IClipPathCreator
+    public class PolygonClipPathCreator : Java.Lang.Object, IClipPathCreator
     {
         private float _numberOfSides;
 

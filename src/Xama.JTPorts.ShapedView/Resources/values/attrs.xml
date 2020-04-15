@@ -3,23 +3,32 @@
   <declare-styleable name="ShapeOfView">
     <attr name="shape_clip_drawable" format="reference"/>
   </declare-styleable>
+  
   <declare-styleable name="TriangleView">
     <attr name="shape_triangle_percentLeft" format="float"/>
     <attr name="shape_triangle_percentBottom" format="float"/>
     <attr name="shape_triangle_percentRight" format="float"/>
   </declare-styleable>
+  
   <declare-styleable name="StarView">
     <attr name="shape_star_noOfPoints" format="integer"/>
   </declare-styleable>
+  
   <declare-styleable name="PolygonView">
     <attr name="shape_polygon_noOfSides" format="integer"/>
   </declare-styleable>
+  
   <declare-styleable name="CircleView">
     <attr name="shape_circle_borderWidth" format="dimension"/>
     <attr name="shape_circle_borderColor" format="color"/>
   </declare-styleable>
+  
   <declare-styleable name="DiagonalView">
     <attr name="shape_diagonal_angle" format="float"/>
+    <attr name="shape_diagonal_direction" format="enum">
+      <enum name="left" value="1"/>
+      <enum name="right" value="2"/>
+    </attr>
     <attr name="shape_diagonal_position" format="enum">
       <enum name="bottom" value="1"/>
       <enum name="top" value="2"/>
@@ -27,6 +36,7 @@
       <enum name="right" value="4"/>
     </attr>
   </declare-styleable>
+  
   <declare-styleable name="ArcView">
     <attr name="shape_arc_height" format="dimension"/>
     <attr name="shape_arc_position" format="enum">
@@ -36,6 +46,7 @@
       <enum name="right" value="4"/>
     </attr>
   </declare-styleable>
+  
   <declare-styleable name="BubbleView">
     <attr name="shape_bubble_borderRadius" format="dimension"/>
     <attr name="shape_bubble_arrowHeight" format="dimension"/>
@@ -48,6 +59,7 @@
     </attr>
     <attr name="arrow_posititon_percent" format="float"/>
   </declare-styleable>
+  
   <declare-styleable name="RoundRectView">
     <attr name="shape_roundRect_topLeftRadius" format="dimension"/>
     <attr name="shape_roundRect_topRightRadius" format="dimension"/>

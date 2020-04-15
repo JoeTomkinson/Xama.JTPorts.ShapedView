@@ -96,7 +96,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
             SetClipPathCreator(new RoundedRectClipPathCreator(TopLeftRadius, TopRightRadius, BottomRightRadius, BottomLeftRadius));
         }
 
-        public override void RequiresShapeUpdate()
+        public new void RequiresShapeUpdate()
         {
             BorderRectF.Set(BorderWidthPx / 2f, BorderWidthPx / 2f, Width - BorderWidthPx / 2f, Height - BorderWidthPx / 2f);
 

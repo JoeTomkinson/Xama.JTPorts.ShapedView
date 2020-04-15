@@ -1,6 +1,8 @@
 ﻿using Android.Content;
 using Android.Content.Res;
+using Android.Runtime;
 using Android.Util;
+using System;
 using Xama.JTPorts.ShapedView.Models;
 using Xama.JTPorts.ShapedView.PathCreators;
 
@@ -14,9 +16,9 @@ namespace Xama.JTPorts.ShapedView.Shapes
             set { DiagonalDirection = value; }
         }
 
-        public BasePosition DiagonalPosition
+        public DiagonalPosition DiagonalPosition
         {
-            get { return DiagonalAngle > 0 ? BasePosition.Left : BasePosition.Right; }
+            get { return DiagonalAngle > 0 ? DiagonalPosition.Left : DiagonalPosition.Right; }
             set { DiagonalPosition = value; RequiresShapeUpdate(); }
         }
 
@@ -41,19 +43,30 @@ namespace Xama.JTPorts.ShapedView.Shapes
             Init(context, attrs);
         }
 
+        public DiagonalView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        {
+        }
+
+        public DiagonalView(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context, attrs, defStyleAttr, defStyleRes)
+        {
+            Init(context, attrs);
+        }
+
         private void Init(Context context, IAttributeSet attrs)
         {
-            DiagonalPosition = BasePosition.Top;
+            DiagonalPosition = DiagonalPosition.Top;
+            DiagonalDirection = DiagonalDirection.Right;
             DiagonalAngle = 0f;
 
             if (attrs != null)
             {
                 TypedArray attributes = context.ObtainStyledAttributes(attrs, Resource.Styleable.DiagonalView);
                 DiagonalAngle = attributes.GetFloat(Resource.Styleable.DiagonalView_shape_diagonal_angle, DiagonalAngle);
-                DiagonalPosition = (BasePosition)attributes.GetInteger(Resource.Styleable.DiagonalView_shape_diagonal_position, (int)DiagonalPosition);
+                DiagonalPosition = (DiagonalPosition)attributes.GetInteger(Resource.Styleable.DiagonalView_shape_diagonal_position, (int)DiagonalPosition);
+                DiagonalDirection = (DiagonalDirection)attributes.GetInteger(Resource.Styleable.DiagonalView_shape_diagonal_direction, (int)DiagonalDirection);
                 attributes.Recycle();
             }
-            SetClipPathCreator(new DiagonalClipPathCreator(DiagonalDirection, DiagonalPosition,DiagonalAngle, PaddingLeft, PaddingRight, PaddingTop, PaddingBottom));
+            SetClipPathCreator(new DiagonalClipPathCreator((int)DiagonalDirection, (int)DiagonalPosition, DiagonalAngle, PaddingLeft, PaddingRight, PaddingTop, PaddingBottom));
         }
     }
 }

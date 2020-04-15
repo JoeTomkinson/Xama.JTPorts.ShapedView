@@ -20,7 +20,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
             set => HeightPx = PxToDp(HeightDp);
         }
 
-        public BasePosition ClipPosition
+        public BubblePosition ClipPosition
         {
             get => ClipPosition;
             set { ClipPosition = value; RequiresShapeUpdate(); }
@@ -137,7 +137,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
             {
                 TypedArray attributes = context.ObtainStyledAttributes(attrs, Resource.Styleable.BubbleView);
                 BorderRadiusPx = attributes.GetDimensionPixelSize(Resource.Styleable.BubbleView_shape_bubble_borderRadius, (int)DpToPx(10));
-                ClipPosition = (BasePosition)attributes.GetInteger(Resource.Styleable.BubbleView_shape_bubble_arrowPosition, (int)ClipPosition);
+                ClipPosition = (BubblePosition)attributes.GetInteger(Resource.Styleable.BubbleView_shape_bubble_arrowPosition, (int)ClipPosition);
                 ArrowHeightPx = attributes.GetDimensionPixelSize(Resource.Styleable.BubbleView_shape_bubble_arrowHeight, (int)DpToPx(10));
                 ArrowWidthPx = attributes.GetDimensionPixelSize(Resource.Styleable.BubbleView_shape_bubble_arrowWidth, (int)DpToPx(10));
                 PositionPer = attributes.GetFloat(Resource.Styleable.BubbleView_arrow_posititon_percent, PositionPer);

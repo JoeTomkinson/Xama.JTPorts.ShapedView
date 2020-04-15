@@ -4,7 +4,7 @@ using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class RoundedRectClipPathCreator : IClipPathCreator
+    public class RoundedRectClipPathCreator : Java.Lang.Object, IClipPathCreator
     {
         private RectF rectF = new RectF();
         float _topLeftRadius, _topRightRadius, _bottomRightRadius, _bottomLeftRadius;

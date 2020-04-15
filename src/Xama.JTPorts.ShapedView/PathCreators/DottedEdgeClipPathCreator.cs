@@ -4,15 +4,15 @@ using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class DottedEdgeClipPathCreator : IClipPathCreator
+    public class DottedEdgeClipPathCreator : Java.Lang.Object, IClipPathCreator
     {
-        private RectF _rectF = new RectF();
+        private readonly RectF _rectF = new RectF();
 
         private float _topLeftCutSize = 0f;
         private float _topRightCutSize = 0f;
         private float _bottomRightCutSize = 0f;
         private float _bottomLeftCutSize = 0f;
-        private BasePosition _dotEdgePosition;
+        private DotEdgePosition _dotEdgePosition;
         private float _dotRadius = 0f;
         private float _dotSpacing = 0f;
 
@@ -21,7 +21,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             float topRightCutSize,
             float bottomRightCutSize,
             float bottomLeftCutSize,
-            BasePosition dotEdgePosition,
+            DotEdgePosition dotEdgePosition,
             float dotRadius,
             float dotSpacing
             ) 
@@ -56,7 +56,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             bottomRightDiameter = bottomRightDiameter < 0 ? 0 : bottomRightDiameter;
 
             path.MoveTo(rect.Left + topLeftDiameter, rect.Top);
-            if (containsFlag(BasePosition.Top))
+            if (containsFlag(DotEdgePosition.Top))
             {
                 int count = 1;
                 int x = (int)(rect.Left + topLeftDiameter + _dotSpacing * count + _dotRadius * 2 * (count - 1));
@@ -75,7 +75,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             }
 
             path.LineTo(rect.Right, rect.Top + topRightDiameter);
-            if (containsFlag(BasePosition.Right))
+            if (containsFlag(DotEdgePosition.Right))
             {
                 //drawing dots starts from the bottom just like the LEFT side so that when using two
                 //widgets side by side, their dots positions will match each other
@@ -103,7 +103,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             }
 
             path.LineTo(rect.Right - bottomRightDiameter, rect.Bottom);
-            if (containsFlag(BasePosition.Bottom))
+            if (containsFlag(DotEdgePosition.Bottom))
             {
                 int count = 1;
                 int x = (int)(rect.Right - bottomRightDiameter - _dotSpacing * count - _dotRadius * 2 * (count - 1));
@@ -122,7 +122,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             }
 
             path.LineTo(rect.Left, rect.Bottom - bottomLeftDiameter);
-            if (containsFlag(BasePosition.Left))
+            if (containsFlag(DotEdgePosition.Left))
             {
                 int count = 1;
                 int y = (int)(rect.Bottom - bottomLeftDiameter - _dotSpacing * count - _dotRadius * 2 * (count - 1));
@@ -145,7 +145,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
             return path;
         }
 
-        private bool containsFlag(BasePosition positionFlag)
+        private bool containsFlag(DotEdgePosition positionFlag)
         {
             return (_dotEdgePosition | positionFlag) == _dotEdgePosition;
         }

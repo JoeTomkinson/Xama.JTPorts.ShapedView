@@ -4,7 +4,7 @@ using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class StarClipPathCreator : IClipPathCreator
+    public class StarClipPathCreator : Java.Lang.Object, IClipPathCreator
     {
         private float _numberOfPoints;
 

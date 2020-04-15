@@ -3,6 +3,7 @@ using Android.Content.Res;
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
+using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
@@ -13,7 +14,7 @@ using Xama.JTPorts.ShapedView.Managers;
 
 namespace Xama.JTPorts.ShapedView
 {
-    public abstract class ViewShape : FrameLayout
+    public class ViewShape : FrameLayout
     {
         private Paint clipPaint = new Paint(PaintFlags.AntiAlias);
         private Path clipPath = new Path();
@@ -39,12 +40,21 @@ namespace Xama.JTPorts.ShapedView
             Init(context, attrs);
         }
 
+        protected ViewShape(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        {
+        }
+
+        public ViewShape(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context, attrs, defStyleAttr, defStyleRes)
+        {
+            Init(context, attrs);
+        }
+
         private void Init(Context context, IAttributeSet attrs)
         {
             clipPaint.AntiAlias = true;
 
-            //Depreciated
-            //DrawingCacheEnabled = true;
+            //TODO: Depreciated - create work around
+            DrawingCacheEnabled = true;
 
             SetWillNotDraw(false);
 
@@ -73,6 +83,7 @@ namespace Xama.JTPorts.ShapedView
                     if (-1 != resourceId)
                     {
                         SetDrawable(resourceId);
+                        //SetDrawable(AndroidX.AppCompat.Content.Res.AppCompatResources.GetDrawable(Context, resourceId));
                     }
                 }
 
@@ -112,6 +123,7 @@ namespace Xama.JTPorts.ShapedView
 
         public void SetDrawable(int redId)
         {
+            //SetDrawable(redId);
             SetDrawable(AndroidX.AppCompat.Content.Res.AppCompatResources.GetDrawable(Context, redId));
         }
 
@@ -209,7 +221,7 @@ namespace Xama.JTPorts.ShapedView
             RequiresShapeUpdate();
         }
 
-        public virtual void RequiresShapeUpdate()
+        public void RequiresShapeUpdate()
         {
             this.requiersShapeUpdate = true;
             PostInvalidate();

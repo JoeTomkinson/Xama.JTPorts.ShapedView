@@ -5,13 +5,13 @@ using Xama.JTPorts.ShapedView.Models;
 
 namespace Xama.JTPorts.ShapedView.PathCreators
 {
-    public class ArcClipPathCreator : IClipPathCreator
+    public class ArcClipPathCreator : Java.Lang.Object, IClipPathCreator
     {
         private CropDirection _cropPosition;
-        private BasePosition _clipPosition;
+        private ArcPosition _clipPosition;
         private float _heightPx;
 
-        public ArcClipPathCreator(BasePosition clipPosition, CropDirection cropPosition, float heightPx)
+        public ArcClipPathCreator(ArcPosition clipPosition, CropDirection cropPosition, float heightPx)
         {
             _cropPosition = cropPosition;
             _clipPosition = clipPosition;
@@ -28,7 +28,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
 
             switch (_clipPosition)
             {
-                case  BasePosition.Bottom:
+                case  ArcPosition.Bottom:
                     {
                         if (isCropInside)
                         {
@@ -48,7 +48,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         }
                         break;
                     }
-                case  BasePosition.Top:
+                case  ArcPosition.Top:
                     if (isCropInside)
                     {
                         path.MoveTo(0, height);
@@ -66,7 +66,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         path.Close();
                     }
                     break;
-                case  BasePosition.Left:
+                case  ArcPosition.Left:
                     if (isCropInside)
                     {
                         path.MoveTo(width, 0);
@@ -84,7 +84,7 @@ namespace Xama.JTPorts.ShapedView.PathCreators
                         path.Close();
                     }
                     break;
-                case  BasePosition.Right:
+                case  ArcPosition.Right:
                     if (isCropInside)
                     {
                         path.MoveTo(0, 0);
