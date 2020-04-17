@@ -20,7 +20,7 @@
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <PackageId>Xama.JTPorts.ShapedView</PackageId>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <Icon>nugetIcon.png</Icon>
     <Description>Give a custom shape to any android view</Description>
     <Authors>Joe Tomkinson</Authors>
@@ -29,13 +29,14 @@
     <PackageProjectUrl>https://github.com/DigitalSa1nt/Xama.JTPorts.ShapedView</PackageProjectUrl>
     <Owners>Joe Tomkinson</Owners>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageReleaseNotes>1.0.2 - Corrected implementation of clip path creators. fixed breaking bugs.
+    <PackageReleaseNotes>1.0.3 - Had to add in old NuGet spec configs for icon and license URL.
+1.0.2 - Corrected implementation of clip path creators. fixed breaking bugs.
 1.0.1 - Adjusted some nugetspec configurations
 1.0.0 - First port of ShapeOfView version 1.4.5</PackageReleaseNotes>
     <Summary>Give a custom shape to any android view</Summary>
-    <PackageIconUrl>
-    </PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/DigitalSa1nt/Xama.JTPorts.ShapedView/master/nuget/icon.png</PackageIconUrl>
     <NeutralLanguage>En</NeutralLanguage>
+    <PackageLicenseUrl>https://github.com/DigitalSa1nt/Xama.JTPorts.ShapedView/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
