@@ -64,109 +64,112 @@ namespace Xama.JTPorts.ShapedView
 			public static int fontWeight = 2130771979;
 			
 			// aapt resource value: 0x7F01000C
-			public static int shape_arc_height = 2130771980;
+			public static int shape_arc_cropDirection = 2130771980;
 			
 			// aapt resource value: 0x7F01000D
-			public static int shape_arc_position = 2130771981;
+			public static int shape_arc_height = 2130771981;
 			
 			// aapt resource value: 0x7F01000E
-			public static int shape_bubble_arrowHeight = 2130771982;
+			public static int shape_arc_position = 2130771982;
 			
 			// aapt resource value: 0x7F01000F
-			public static int shape_bubble_arrowPosition = 2130771983;
+			public static int shape_bubble_arrowHeight = 2130771983;
 			
 			// aapt resource value: 0x7F010010
-			public static int shape_bubble_arrowWidth = 2130771984;
+			public static int shape_bubble_arrowPosition = 2130771984;
 			
 			// aapt resource value: 0x7F010011
-			public static int shape_bubble_borderRadius = 2130771985;
+			public static int shape_bubble_arrowWidth = 2130771985;
 			
 			// aapt resource value: 0x7F010012
-			public static int shape_circle_borderColor = 2130771986;
+			public static int shape_bubble_borderRadius = 2130771986;
 			
 			// aapt resource value: 0x7F010013
-			public static int shape_circle_borderWidth = 2130771987;
+			public static int shape_circle_borderColor = 2130771987;
 			
 			// aapt resource value: 0x7F010014
-			public static int shape_clip_drawable = 2130771988;
+			public static int shape_circle_borderWidth = 2130771988;
 			
 			// aapt resource value: 0x7F010015
-			public static int shape_cutCorner_bottomLeftSize = 2130771989;
+			public static int shape_clip_drawable = 2130771989;
 			
 			// aapt resource value: 0x7F010016
-			public static int shape_cutCorner_bottomRightSize = 2130771990;
+			public static int shape_cutCorner_bottomLeftSize = 2130771990;
 			
 			// aapt resource value: 0x7F010017
-			public static int shape_cutCorner_topLeftSize = 2130771991;
+			public static int shape_cutCorner_bottomRightSize = 2130771991;
 			
 			// aapt resource value: 0x7F010018
-			public static int shape_cutCorner_topRightSize = 2130771992;
+			public static int shape_cutCorner_topLeftSize = 2130771992;
 			
 			// aapt resource value: 0x7F010019
-			public static int shape_diagonal_angle = 2130771993;
+			public static int shape_cutCorner_topRightSize = 2130771993;
 			
 			// aapt resource value: 0x7F01001A
-			public static int shape_diagonal_direction = 2130771994;
+			public static int shape_diagonal_angle = 2130771994;
 			
 			// aapt resource value: 0x7F01001B
-			public static int shape_diagonal_position = 2130771995;
-			
-			// aapt resource value: 0x7F01001E
-			public static int shape_dottedEdgesCutCorner_bottomLeftSize = 2130771998;
-			
-			// aapt resource value: 0x7F01001F
-			public static int shape_dottedEdgesCutCorner_bottomRightSize = 2130771999;
-			
-			// aapt resource value: 0x7F010020
-			public static int shape_dottedEdgesCutCorner_topLeftSize = 2130772000;
-			
-			// aapt resource value: 0x7F010021
-			public static int shape_dottedEdgesCutCorner_topRightSize = 2130772001;
+			public static int shape_diagonal_direction = 2130771995;
 			
 			// aapt resource value: 0x7F01001C
-			public static int shape_dot_radius = 2130771996;
+			public static int shape_diagonal_position = 2130771996;
 			
-			// aapt resource value: 0x7F01001D
-			public static int shape_dot_spacing = 2130771997;
+			// aapt resource value: 0x7F01001F
+			public static int shape_dottedEdgesCutCorner_bottomLeftSize = 2130771999;
+			
+			// aapt resource value: 0x7F010020
+			public static int shape_dottedEdgesCutCorner_bottomRightSize = 2130772000;
+			
+			// aapt resource value: 0x7F010021
+			public static int shape_dottedEdgesCutCorner_topLeftSize = 2130772001;
 			
 			// aapt resource value: 0x7F010022
-			public static int shape_edge_position = 2130772002;
+			public static int shape_dottedEdgesCutCorner_topRightSize = 2130772002;
+			
+			// aapt resource value: 0x7F01001D
+			public static int shape_dot_radius = 2130771997;
+			
+			// aapt resource value: 0x7F01001E
+			public static int shape_dot_spacing = 2130771998;
 			
 			// aapt resource value: 0x7F010023
-			public static int shape_polygon_noOfSides = 2130772003;
+			public static int shape_edge_position = 2130772003;
 			
 			// aapt resource value: 0x7F010024
-			public static int shape_roundRect_borderColor = 2130772004;
+			public static int shape_polygon_noOfSides = 2130772004;
 			
 			// aapt resource value: 0x7F010025
-			public static int shape_roundRect_borderWidth = 2130772005;
+			public static int shape_roundRect_borderColor = 2130772005;
 			
 			// aapt resource value: 0x7F010026
-			public static int shape_roundRect_bottomLeftRadius = 2130772006;
+			public static int shape_roundRect_borderWidth = 2130772006;
 			
 			// aapt resource value: 0x7F010027
-			public static int shape_roundRect_bottomRightRadius = 2130772007;
+			public static int shape_roundRect_bottomLeftRadius = 2130772007;
 			
 			// aapt resource value: 0x7F010028
-			public static int shape_roundRect_topLeftRadius = 2130772008;
+			public static int shape_roundRect_bottomRightRadius = 2130772008;
 			
 			// aapt resource value: 0x7F010029
-			public static int shape_roundRect_topRightRadius = 2130772009;
+			public static int shape_roundRect_topLeftRadius = 2130772009;
 			
 			// aapt resource value: 0x7F01002A
-			public static int shape_star_noOfPoints = 2130772010;
+			public static int shape_roundRect_topRightRadius = 2130772010;
 			
 			// aapt resource value: 0x7F01002B
-			public static int shape_triangle_percentBottom = 2130772011;
+			public static int shape_star_noOfPoints = 2130772011;
 			
 			// aapt resource value: 0x7F01002C
-			public static int shape_triangle_percentLeft = 2130772012;
+			public static int shape_triangle_percentBottom = 2130772012;
 			
 			// aapt resource value: 0x7F01002D
-			public static int shape_triangle_percentRight = 2130772013;
+			public static int shape_triangle_percentLeft = 2130772013;
 			
 			// aapt resource value: 0x7F01002E
-			public static int ttcIndex = 2130772014;
+			public static int shape_triangle_percentRight = 2130772014;
+			
+			// aapt resource value: 0x7F01002F
+			public static int ttcIndex = 2130772015;
 			
 			static Attribute()
 			{
@@ -482,79 +485,85 @@ namespace Xama.JTPorts.ShapedView
 			public static int info = 2131034159;
 			
 			// aapt resource value: 0x7F050030
-			public static int italic = 2131034160;
+			public static int inside = 2131034160;
 			
 			// aapt resource value: 0x7F050031
-			public static int left = 2131034161;
+			public static int italic = 2131034161;
 			
 			// aapt resource value: 0x7F050032
-			public static int line1 = 2131034162;
+			public static int left = 2131034162;
 			
 			// aapt resource value: 0x7F050033
-			public static int line3 = 2131034163;
+			public static int line1 = 2131034163;
 			
 			// aapt resource value: 0x7F050034
-			public static int none = 2131034164;
+			public static int line3 = 2131034164;
 			
 			// aapt resource value: 0x7F050035
-			public static int normal = 2131034165;
+			public static int none = 2131034165;
 			
 			// aapt resource value: 0x7F050036
-			public static int notification_background = 2131034166;
+			public static int normal = 2131034166;
 			
 			// aapt resource value: 0x7F050037
-			public static int notification_main_column = 2131034167;
+			public static int notification_background = 2131034167;
 			
 			// aapt resource value: 0x7F050038
-			public static int notification_main_column_container = 2131034168;
+			public static int notification_main_column = 2131034168;
 			
 			// aapt resource value: 0x7F050039
-			public static int right = 2131034169;
+			public static int notification_main_column_container = 2131034169;
 			
 			// aapt resource value: 0x7F05003A
-			public static int right_icon = 2131034170;
+			public static int outside = 2131034170;
 			
 			// aapt resource value: 0x7F05003B
-			public static int right_side = 2131034171;
+			public static int right = 2131034171;
 			
 			// aapt resource value: 0x7F05003C
-			public static int tag_accessibility_actions = 2131034172;
+			public static int right_icon = 2131034172;
 			
 			// aapt resource value: 0x7F05003D
-			public static int tag_accessibility_clickable_spans = 2131034173;
+			public static int right_side = 2131034173;
 			
 			// aapt resource value: 0x7F05003E
-			public static int tag_accessibility_heading = 2131034174;
+			public static int tag_accessibility_actions = 2131034174;
 			
 			// aapt resource value: 0x7F05003F
-			public static int tag_accessibility_pane_title = 2131034175;
+			public static int tag_accessibility_clickable_spans = 2131034175;
 			
 			// aapt resource value: 0x7F050040
-			public static int tag_screen_reader_focusable = 2131034176;
+			public static int tag_accessibility_heading = 2131034176;
 			
 			// aapt resource value: 0x7F050041
-			public static int tag_transition_group = 2131034177;
+			public static int tag_accessibility_pane_title = 2131034177;
 			
 			// aapt resource value: 0x7F050042
-			public static int tag_unhandled_key_event_manager = 2131034178;
+			public static int tag_screen_reader_focusable = 2131034178;
 			
 			// aapt resource value: 0x7F050043
-			public static int tag_unhandled_key_listeners = 2131034179;
+			public static int tag_transition_group = 2131034179;
 			
 			// aapt resource value: 0x7F050044
-			public static int text = 2131034180;
+			public static int tag_unhandled_key_event_manager = 2131034180;
 			
 			// aapt resource value: 0x7F050045
-			public static int text2 = 2131034181;
+			public static int tag_unhandled_key_listeners = 2131034181;
 			
 			// aapt resource value: 0x7F050046
-			public static int time = 2131034182;
+			public static int text = 2131034182;
 			
 			// aapt resource value: 0x7F050047
-			public static int title = 2131034183;
+			public static int text2 = 2131034183;
 			
 			// aapt resource value: 0x7F050048
-			public static int top = 2131034184;
+			public static int time = 2131034184;
+			
+			// aapt resource value: 0x7F050049
+			public static int title = 2131034185;
+			
+			// aapt resource value: 0x7F05004A
+			public static int top = 2131034186;
 			
 			static Id()
 			{
@@ -726,24 +735,28 @@ namespace Xama.JTPorts.ShapedView
 			// aapt resource value: 1
 			public static int AnimatedStateListDrawableTransition_android_toId = 1;
 			
-			// aapt resource value: { 0x7F01000C,0x7F01000D }
+			// aapt resource value: { 0x7F01000C,0x7F01000D,0x7F01000E }
 			public static int[] ArcView = new int[] {
 					2130771980,
-					2130771981};
+					2130771981,
+					2130771982};
 			
 			// aapt resource value: 0
-			public static int ArcView_shape_arc_height = 0;
+			public static int ArcView_shape_arc_cropDirection = 0;
 			
 			// aapt resource value: 1
-			public static int ArcView_shape_arc_position = 1;
+			public static int ArcView_shape_arc_height = 1;
 			
-			// aapt resource value: { 0x7F010001,0x7F01000E,0x7F01000F,0x7F010010,0x7F010011 }
+			// aapt resource value: 2
+			public static int ArcView_shape_arc_position = 2;
+			
+			// aapt resource value: { 0x7F010001,0x7F01000F,0x7F010010,0x7F010011,0x7F010012 }
 			public static int[] BubbleView = new int[] {
 					2130771969,
-					2130771982,
 					2130771983,
 					2130771984,
-					2130771985};
+					2130771985,
+					2130771986};
 			
 			// aapt resource value: 0
 			public static int BubbleView_arrow_posititon_percent = 0;
@@ -760,10 +773,10 @@ namespace Xama.JTPorts.ShapedView
 			// aapt resource value: 4
 			public static int BubbleView_shape_bubble_borderRadius = 4;
 			
-			// aapt resource value: { 0x7F010012,0x7F010013 }
+			// aapt resource value: { 0x7F010013,0x7F010014 }
 			public static int[] CircleView = new int[] {
-					2130771986,
-					2130771987};
+					2130771987,
+					2130771988};
 			
 			// aapt resource value: 0
 			public static int CircleView_shape_circle_borderColor = 0;
@@ -786,12 +799,12 @@ namespace Xama.JTPorts.ShapedView
 			// aapt resource value: 0
 			public static int ColorStateListItem_android_color = 0;
 			
-			// aapt resource value: { 0x7F010015,0x7F010016,0x7F010017,0x7F010018 }
+			// aapt resource value: { 0x7F010016,0x7F010017,0x7F010018,0x7F010019 }
 			public static int[] CutCornerView = new int[] {
-					2130771989,
 					2130771990,
 					2130771991,
-					2130771992};
+					2130771992,
+					2130771993};
 			
 			// aapt resource value: 0
 			public static int CutCornerView_shape_cutCorner_bottomLeftSize = 0;
@@ -805,11 +818,11 @@ namespace Xama.JTPorts.ShapedView
 			// aapt resource value: 3
 			public static int CutCornerView_shape_cutCorner_topRightSize = 3;
 			
-			// aapt resource value: { 0x7F010019,0x7F01001A,0x7F01001B }
+			// aapt resource value: { 0x7F01001A,0x7F01001B,0x7F01001C }
 			public static int[] DiagonalView = new int[] {
-					2130771993,
 					2130771994,
-					2130771995};
+					2130771995,
+					2130771996};
 			
 			// aapt resource value: 0
 			public static int DiagonalView_shape_diagonal_angle = 0;
@@ -820,15 +833,15 @@ namespace Xama.JTPorts.ShapedView
 			// aapt resource value: 2
 			public static int DiagonalView_shape_diagonal_position = 2;
 			
-			// aapt resource value: { 0x7F01001C,0x7F01001D,0x7F01001E,0x7F01001F,0x7F010020,0x7F010021,0x7F010022 }
+			// aapt resource value: { 0x7F01001D,0x7F01001E,0x7F01001F,0x7F010020,0x7F010021,0x7F010022,0x7F010023 }
 			public static int[] DottedEdgesCutCornerView = new int[] {
-					2130771996,
 					2130771997,
 					2130771998,
 					2130771999,
 					2130772000,
 					2130772001,
-					2130772002};
+					2130772002,
+					2130772003};
 			
 			// aapt resource value: 2
 			public static int DottedEdgesCutCornerView_shape_dottedEdgesCutCorner_bottomLeftSize = 2;
@@ -860,7 +873,7 @@ namespace Xama.JTPorts.ShapedView
 					2130771975,
 					2130771976};
 			
-			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F010002,0x7F010009,0x7F01000A,0x7F01000B,0x7F01002E }
+			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F010002,0x7F010009,0x7F01000A,0x7F01000B,0x7F01002F }
 			public static int[] FontFamilyFont = new int[] {
 					16844082,
 					16844083,
@@ -871,7 +884,7 @@ namespace Xama.JTPorts.ShapedView
 					2130771977,
 					2130771978,
 					2130771979,
-					2130772014};
+					2130772015};
 			
 			// aapt resource value: 0
 			public static int FontFamilyFont_android_font = 0;
@@ -983,21 +996,21 @@ namespace Xama.JTPorts.ShapedView
 			// aapt resource value: 2
 			public static int GradientColor_android_type = 2;
 			
-			// aapt resource value: { 0x7F010023 }
+			// aapt resource value: { 0x7F010024 }
 			public static int[] PolygonView = new int[] {
-					2130772003};
+					2130772004};
 			
 			// aapt resource value: 0
 			public static int PolygonView_shape_polygon_noOfSides = 0;
 			
-			// aapt resource value: { 0x7F010024,0x7F010025,0x7F010026,0x7F010027,0x7F010028,0x7F010029 }
+			// aapt resource value: { 0x7F010025,0x7F010026,0x7F010027,0x7F010028,0x7F010029,0x7F01002A }
 			public static int[] RoundRectView = new int[] {
-					2130772004,
 					2130772005,
 					2130772006,
 					2130772007,
 					2130772008,
-					2130772009};
+					2130772009,
+					2130772010};
 			
 			// aapt resource value: 0
 			public static int RoundRectView_shape_roundRect_borderColor = 0;
@@ -1017,16 +1030,16 @@ namespace Xama.JTPorts.ShapedView
 			// aapt resource value: 5
 			public static int RoundRectView_shape_roundRect_topRightRadius = 5;
 			
-			// aapt resource value: { 0x7F010014 }
-			public static int[] ShapeOfView = new int[] {
-					2130771988};
+			// aapt resource value: { 0x7F010015 }
+			public static int[] ShapedView = new int[] {
+					2130771989};
 			
 			// aapt resource value: 0
-			public static int ShapeOfView_shape_clip_drawable = 0;
+			public static int ShapedView_shape_clip_drawable = 0;
 			
-			// aapt resource value: { 0x7F01002A }
+			// aapt resource value: { 0x7F01002B }
 			public static int[] StarView = new int[] {
-					2130772010};
+					2130772011};
 			
 			// aapt resource value: 0
 			public static int StarView_shape_star_noOfPoints = 0;
@@ -1065,11 +1078,11 @@ namespace Xama.JTPorts.ShapedView
 			// aapt resource value: 1
 			public static int StateListDrawable_android_visible = 1;
 			
-			// aapt resource value: { 0x7F01002B,0x7F01002C,0x7F01002D }
+			// aapt resource value: { 0x7F01002C,0x7F01002D,0x7F01002E }
 			public static int[] TriangleView = new int[] {
-					2130772011,
 					2130772012,
-					2130772013};
+					2130772013,
+					2130772014};
 			
 			// aapt resource value: 0
 			public static int TriangleView_shape_triangle_percentBottom = 0;

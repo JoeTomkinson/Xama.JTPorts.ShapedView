@@ -1,17 +1,20 @@
 ﻿using Android.Content;
 using Android.Content.Res;
+using Android.Graphics;
 using Android.Util;
-using Xama.JTPorts.ShapedView.Models;
-using Xama.JTPorts.ShapedView.PathCreators;
+using Java.Lang;
+using Xama.JTPorts.ShapedView.Interfaces;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
-    public class PolygonView : ViewShape
+    public class PolygonView : ViewShape, IClipPathCreator
     {
+        private int numberOfSides;
+
         public int NumberOfSides
         {
-            get => NumberOfSides;
-            set { NumberOfSides = value; RequiresShapeUpdate(); }
+            get => numberOfSides;
+            set { numberOfSides = value; RequiresShapeUpdate(); }
         }
 
         public PolygonView(Context context) : base(context)
@@ -42,7 +45,33 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 attributes.Recycle();
             }
 
-            SetClipPathCreator(new PolygonClipPathCreator(NumberOfSides));
+            SetClipPathCreator(this);
+        }
+
+        public Path CreateClipPath(int width, int height)
+        {
+            float section = (float)(2.0 * Math.Pi / NumberOfSides);
+            int polygonSize = Math.Min(width, height);
+            int radius = polygonSize / 2;
+            int centerX = width / 2;
+            int centerY = height / 2;
+
+            Path polygonPath = new Path();
+            polygonPath.MoveTo((centerX + radius * (float)Math.Cos(0)), (centerY + radius * (float)Math.Sin(0)));
+
+            for (int i = 1; i < NumberOfSides; i++)
+            {
+                polygonPath.LineTo((centerX + radius * (float)Math.Cos(section * i)),
+                        (centerY + radius * (float)Math.Sin(section * i)));
+            }
+
+            polygonPath.Close();
+            return polygonPath;
+        }
+
+        public bool RequiresBitmap()
+        {
+            return true;
         }
     }
 }

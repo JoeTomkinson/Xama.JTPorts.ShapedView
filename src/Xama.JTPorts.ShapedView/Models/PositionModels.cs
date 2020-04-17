@@ -1,6 +1,4 @@
-﻿using Java.Lang;
-
-namespace Xama.JTPorts.ShapedView.Models
+﻿namespace Xama.JTPorts.ShapedView.Models
 {
     public enum ArcPosition
     {

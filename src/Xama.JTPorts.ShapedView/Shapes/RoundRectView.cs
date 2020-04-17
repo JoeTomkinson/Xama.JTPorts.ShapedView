@@ -3,46 +3,58 @@ using Android.Content.Res;
 using Android.Graphics;
 using Android.Util;
 using Java.Lang;
-using Xama.JTPorts.ShapedView.PathCreators;
+using Xama.JTPorts.ShapedView.Interfaces;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
-    public class RoundRectView : ViewShape
+    public class RoundRectView : ViewShape, IClipPathCreator
     {
+        //region border
+        private Paint BorderPaint = new Paint(PaintFlags.AntiAlias);
+        private RectF BorderRectF = new RectF();
+        private Path BorderPath = new Path();
+        private RectF rectF = new RectF();
+        private float topLeftRadius;
+        private float topRightRadius;
+        private float bottomRightRadius;
+        private float bottomLeftRadius;
+        private Color borderColor;
+        private float borderWidthPx;
+
         public float TopLeftRadius
         {
-            get => TopLeftRadius;
-            set { TopLeftRadius = value; RequiresShapeUpdate(); }
+            get => topLeftRadius;
+            set { topLeftRadius = value; RequiresShapeUpdate(); }
         }
 
         public float TopRightRadius
         {
-            get => TopRightRadius;
-            set { TopRightRadius = value; RequiresShapeUpdate(); }
+            get => topRightRadius;
+            set { topRightRadius = value; RequiresShapeUpdate(); }
         }
 
         public float BottomRightRadius
         {
-            get => BottomRightRadius;
-            set { BottomRightRadius = value; RequiresShapeUpdate(); }
+            get => bottomRightRadius;
+            set { bottomRightRadius = value; RequiresShapeUpdate(); }
         }
 
         public float BottomLeftRadius
         {
-            get => BottomLeftRadius;
-            set { BottomLeftRadius = value; RequiresShapeUpdate(); }
+            get => bottomLeftRadius;
+            set { bottomLeftRadius = value; RequiresShapeUpdate(); }
         }
 
         public Color BorderColor
         {
-            get => BorderColor;
-            set { BorderColor = value; RequiresShapeUpdate(); }
+            get => borderColor;
+            set { borderColor = value; RequiresShapeUpdate(); }
         }
 
         public float BorderWidthPx
         {
-            get => BorderWidthPx;
-            set { BorderWidthPx = value; RequiresShapeUpdate(); }
+            get => borderWidthPx;
+            set { borderWidthPx = value; RequiresShapeUpdate(); }
         }
 
         public float BorderWidthdP
@@ -50,11 +62,6 @@ namespace Xama.JTPorts.ShapedView.Shapes
             get => PxToDp(BorderWidthPx);
             set { BorderWidthPx = DpToPx(value); }
         }
-
-        //region border
-        private Paint BorderPaint = new Paint(PaintFlags.AntiAlias);
-        private RectF BorderRectF = new RectF();
-        private Path BorderPath = new Path();
 
         public RoundRectView(Context context) : base(context)
         {
@@ -93,7 +100,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 attributes.Recycle();
             }
             BorderPaint.SetStyle(Paint.Style.Stroke);
-            SetClipPathCreator(new RoundedRectClipPathCreator(TopLeftRadius, TopRightRadius, BottomRightRadius, BottomLeftRadius));
+            SetClipPathCreator(this);
         }
 
         public new void RequiresShapeUpdate()
@@ -118,6 +125,11 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 BorderPaint.Color = BorderColor;
                 canvas.DrawPath(BorderPath, BorderPaint);
             }
+        }
+
+        protected float LimitSize(float from, float width, float height)
+        {
+            return Math.Min(from, Math.Min(width, height));
         }
 
         private Path GeneratePath(bool useBezier, RectF rect, float topLeftRadius, float topRightRadius, float bottomRightRadius, float bottomLeftRadius)
@@ -199,6 +211,21 @@ namespace Xama.JTPorts.ShapedView.Shapes
             path.Close();
 
             return path;
+        }
+
+        public Path CreateClipPath(int width, int height)
+        {
+            rectF.Set(0, 0, width, height);
+            return GeneratePath(false, rectF,
+                    LimitSize(TopLeftRadius, width, height),
+                    LimitSize(TopRightRadius, width, height),
+                    LimitSize(BottomRightRadius, width, height),
+                    LimitSize(BottomLeftRadius, width, height));
+        }
+
+        public bool RequiresBitmap()
+        {
+            return false;
         }
     }
 }

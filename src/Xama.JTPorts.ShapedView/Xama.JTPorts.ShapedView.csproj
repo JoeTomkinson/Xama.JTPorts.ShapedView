@@ -63,20 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\PositionModels.cs" />
-    <Compile Include="PathCreators\ArcClipPathCreator.cs" />
-    <Compile Include="PathCreators\BubbleClipPathCreator.cs" />
-    <Compile Include="PathCreators\CircleClipPathCreator.cs" />
-    <Compile Include="PathCreators\CurCornerPathCreator.cs" />
-    <Compile Include="PathCreators\DiagonalClipPathCreator.cs" />
-    <Compile Include="PathCreators\DottedEdgeClipPathCreator.cs" />
-    <Compile Include="PathCreators\PolygonClipPathCreator.cs" />
-    <Compile Include="PathCreators\RoundedRectClipPathCreator.cs" />
-    <Compile Include="PathCreators\StarClipPathCreator.cs" />
-    <Compile Include="PathCreators\TriangleClipPathCreator.cs" />
     <Compile Include="Providers\CustomOutlineProvider.cs" />
-    <Compile Include="Managers\ClipManager.cs" />
+    <Compile Include="Interfaces\IClipManager.cs" />
     <Compile Include="Managers\ClipPathManager.cs" />
-    <Compile Include="Managers\IClipPathCreator.cs" />
+    <Compile Include="Interfaces\IClipPathCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Shapes\ArcView.cs" />

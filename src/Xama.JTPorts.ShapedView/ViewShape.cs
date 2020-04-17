@@ -11,19 +11,20 @@ using AndroidX.Core.View;
 using System;
 using Xama.JTPorts.ShapedView.Abstracts;
 using Xama.JTPorts.ShapedView.Managers;
+using Xama.JTPorts.ShapedView.Interfaces;
 
 namespace Xama.JTPorts.ShapedView
 {
     public class ViewShape : FrameLayout
     {
-        private Paint clipPaint = new Paint(PaintFlags.AntiAlias);
-        private Path clipPath = new Path();
+        private readonly Paint clipPaint = new Paint(PaintFlags.AntiAlias);
+        private readonly Path clipPath = new Path();
         protected PorterDuffXfermode pdMode = new PorterDuffXfermode(PorterDuff.Mode.DstOut);
         protected Drawable drawable = null;
-        private IClipManager clipManager = new ClipPathManager();
+        private readonly IClipManager clipManager = new ClipPathManager();
         private bool requiersShapeUpdate = true;
         private Bitmap clipBitmap;
-        private Path rectView = new Path();
+        private readonly Path rectView = new Path();
 
         public ViewShape(Context context) : base(context)
         {
@@ -35,13 +36,13 @@ namespace Xama.JTPorts.ShapedView
             Init(context, attrs);
         }
 
+        protected ViewShape(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        {
+        }
+
         public ViewShape(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
         {
             Init(context, attrs);
-        }
-
-        protected ViewShape(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
-        {
         }
 
         public ViewShape(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context, attrs, defStyleAttr, defStyleRes)
@@ -75,18 +76,16 @@ namespace Xama.JTPorts.ShapedView
 
             if (attrs != null)
             {
-                TypedArray attributes = context.ObtainStyledAttributes(attrs, Resource.Styleable.ShapeOfView);
-
-                if (attributes.HasValue(Resource.Styleable.ShapeOfView_shape_clip_drawable))
+                TypedArray attributes = context.ObtainStyledAttributes(attrs, Resource.Styleable.ShapedView);
+                if (attributes.HasValue(Resource.Styleable.ShapedView_shape_clip_drawable))
                 {
-                    int resourceId = attributes.GetResourceId(Resource.Styleable.ShapeOfView_shape_clip_drawable, -1);
+                    int resourceId = attributes.GetResourceId(Resource.Styleable.ShapedView_shape_clip_drawable, -1);
                     if (-1 != resourceId)
                     {
                         SetDrawable(resourceId);
                         //SetDrawable(AndroidX.AppCompat.Content.Res.AppCompatResources.GetDrawable(Context, resourceId));
                     }
                 }
-
                 attributes.Recycle();
             }
         }

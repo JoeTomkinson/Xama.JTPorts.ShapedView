@@ -1,25 +1,35 @@
 ﻿using Android.Content;
 using Android.Content.Res;
+using Android.Graphics;
 using Android.Util;
+using Xama.JTPorts.ShapedView.Interfaces;
 using Xama.JTPorts.ShapedView.Models;
-using Xama.JTPorts.ShapedView.PathCreators;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
-    public class DottedEdgesCutCornerView : ViewShape
+    public class DottedEdgesCutCornerView : ViewShape, IClipPathCreator
     {
+        private RectF _rectF = new RectF();
+        private DotEdgePosition dotEdgePosition;
+        private float topLeftCutSize;
+        private float topRightCutSize;
+        private float bottomRightCutSize;
+        private float bottomLeftCutSize;
+        private float dotRadius;
+        private float dotSpacing;
+
         public DotEdgePosition DotEdgePosition
         {
-            get => DotEdgePosition;
-            set { DotEdgePosition = value; RequiresShapeUpdate(); }
+            get => dotEdgePosition;
+            set { dotEdgePosition = value; RequiresShapeUpdate(); }
         }
 
         public float TopLeftCutSize
         {
-            get => TopLeftCutSize;
+            get => topLeftCutSize;
             set
             {
-                this.TopLeftCutSize = value;
+                this.topLeftCutSize = value;
                 RequiresShapeUpdate();
             }
         }
@@ -32,10 +42,10 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public float TopRightCutSize
         {
-            get => TopRightCutSize;
+            get => topRightCutSize;
             set
             {
-                TopRightCutSize = value;
+                topRightCutSize = value;
                 RequiresShapeUpdate();
             }
         }
@@ -48,10 +58,10 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public float BottomRightCutSize
         {
-            get => BottomRightCutSize;
+            get => bottomRightCutSize;
             set
             {
-                BottomRightCutSize = value;
+                bottomRightCutSize = value;
                 RequiresShapeUpdate();
             }
         }
@@ -64,10 +74,10 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public float BottomLeftCutSize
         {
-            get => BottomLeftCutSize;
+            get => bottomLeftCutSize;
             set
             {
-                BottomLeftCutSize = value;
+                bottomLeftCutSize = value;
                 RequiresShapeUpdate();
             }
         }
@@ -80,10 +90,10 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public float DotRadius
         {
-            get => DotRadius;
+            get => dotRadius;
             set
             {
-                DotRadius = value;
+                dotRadius = value;
                 RequiresShapeUpdate();
             }
         }
@@ -96,10 +106,10 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public float DotSpacing
         {
-            get => DotSpacing;
+            get => dotSpacing;
             set
             {
-                DotSpacing = value;
+                dotSpacing = value;
                 RequiresShapeUpdate();
             }
         }
@@ -146,7 +156,122 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 DotSpacing = attributes.GetDimensionPixelSize(Resource.Styleable.DottedEdgesCutCornerView_shape_dot_spacing, (int)DotSpacing);
                 attributes.Recycle();
             }
-            SetClipPathCreator(new DottedEdgeClipPathCreator(TopLeftCutSize, TopRightCutSize, BottomRightCutSize, BottomLeftCutSize, DotEdgePosition, DotRadius, DotSpacing));
+            SetClipPathCreator(this);
+        }
+
+        public Path CreateClipPath(int width, int height)
+        {
+            _rectF.Set(0, 0, width, height);
+            return generatePath(_rectF, TopLeftCutSize, TopRightCutSize, BottomRightCutSize, BottomLeftCutSize);
+        }
+
+        public bool RequiresBitmap()
+        {
+            return false;
+        }
+
+        private Path generatePath(RectF rect, float topLeftDiameter, float topRightDiameter, float bottomRightDiameter, float bottomLeftDiameter)
+        {
+            Path path = new Path();
+
+            topLeftDiameter = topLeftDiameter < 0 ? 0 : topLeftDiameter;
+            topRightDiameter = topRightDiameter < 0 ? 0 : topRightDiameter;
+            bottomLeftDiameter = bottomLeftDiameter < 0 ? 0 : bottomLeftDiameter;
+            bottomRightDiameter = bottomRightDiameter < 0 ? 0 : bottomRightDiameter;
+
+            path.MoveTo(rect.Left + topLeftDiameter, rect.Top);
+            if (ContainsFlag(DotEdgePosition.Top))
+            {
+                int count = 1;
+                int x = (int)(rect.Left + topLeftDiameter + DotSpacing * count + DotRadius * 2 * (count - 1));
+                while (x + DotSpacing + DotRadius * 2 <= rect.Right - topRightDiameter)
+                {
+                    x = (int)(rect.Left + topLeftDiameter + DotSpacing * count + DotRadius * 2 * (count - 1));
+                    path.LineTo(x, rect.Top);
+                    path.QuadTo(x + DotRadius, rect.Top + DotRadius, x + DotRadius * 2, rect.Top);
+                    count++;
+                }
+                path.LineTo(rect.Right - topRightDiameter, rect.Top);
+            }
+            else
+            {
+                path.LineTo(rect.Right - topRightDiameter, rect.Top);
+            }
+
+            path.LineTo(rect.Right, rect.Top + topRightDiameter);
+            if (ContainsFlag(DotEdgePosition.Right))
+            {
+                //drawing dots starts from the bottom just like the LEFT side so that when using two
+                //widgets side by side, their dots positions will match each other
+                path.LineTo(rect.Right - DotRadius, rect.Top + topRightDiameter);
+                path.LineTo(rect.Right - DotRadius, rect.Bottom - bottomRightDiameter);
+                path.LineTo(rect.Right, rect.Bottom - bottomRightDiameter);
+
+                int count = 1;
+                int y = (int)(rect.Bottom - bottomRightDiameter - DotSpacing * count - DotRadius * 2 * (count - 1));
+                while (y - DotSpacing - DotRadius * 2 >= rect.Top + topRightDiameter)
+                {
+                    y = (int)(rect.Bottom - bottomRightDiameter - DotSpacing * count - DotRadius * 2 * (count - 1));
+                    path.LineTo(rect.Right, y);
+                    path.QuadTo(rect.Right - DotRadius, y - DotRadius, rect.Right, y - DotRadius * 2);
+                    count++;
+                }
+                path.LineTo(rect.Right, rect.Top + topRightDiameter);
+                path.LineTo(rect.Right - DotRadius, rect.Top + topRightDiameter);
+                path.LineTo(rect.Right - DotRadius, rect.Bottom - bottomRightDiameter);
+                path.LineTo(rect.Right, rect.Bottom - bottomRightDiameter);
+            }
+            else
+            {
+                path.LineTo(rect.Right, rect.Bottom - bottomRightDiameter);
+            }
+
+            path.LineTo(rect.Right - bottomRightDiameter, rect.Bottom);
+            if (ContainsFlag(DotEdgePosition.Bottom))
+            {
+                int count = 1;
+                int x = (int)(rect.Right - bottomRightDiameter - DotSpacing * count - DotRadius * 2 * (count - 1));
+                while (x - DotSpacing - DotRadius * 2 >= rect.Left + bottomLeftDiameter)
+                {
+                    x = (int)(rect.Right - bottomRightDiameter - DotSpacing * count - DotRadius * 2 * (count - 1));
+                    path.LineTo(x, rect.Bottom);
+                    path.QuadTo(x - DotRadius, rect.Bottom - DotRadius, x - DotRadius * 2, rect.Bottom);
+                    count++;
+                }
+                path.LineTo(rect.Left + bottomLeftDiameter, rect.Bottom);
+            }
+            else
+            {
+                path.LineTo(rect.Left + bottomLeftDiameter, rect.Bottom);
+            }
+
+            path.LineTo(rect.Left, rect.Bottom - bottomLeftDiameter);
+            if (ContainsFlag(DotEdgePosition.Left))
+            {
+                int count = 1;
+                int y = (int)(rect.Bottom - bottomLeftDiameter - DotSpacing * count - DotRadius * 2 * (count - 1));
+                while (y - DotSpacing - DotRadius * 2 >= rect.Top + topLeftDiameter)
+                {
+                    y = (int)(rect.Bottom - bottomLeftDiameter - DotSpacing * count - DotRadius * 2 * (count - 1));
+                    path.LineTo(rect.Left, y);
+                    path.QuadTo(rect.Left + DotRadius, y - DotRadius, rect.Left, y - DotRadius * 2);
+                    count++;
+                }
+                path.LineTo(rect.Left, rect.Top + topLeftDiameter);
+            }
+            else
+            {
+                path.LineTo(rect.Left, rect.Top + topLeftDiameter);
+            }
+            path.LineTo(rect.Left + topLeftDiameter, rect.Top);
+            path.Close();
+
+            return path;
+        }
+
+        private bool ContainsFlag(DotEdgePosition positionFlag)
+        {
+            return (DotEdgePosition | positionFlag) == DotEdgePosition;
         }
     }
 }

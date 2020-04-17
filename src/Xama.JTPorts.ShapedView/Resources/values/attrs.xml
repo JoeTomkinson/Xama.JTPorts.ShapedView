@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <declare-styleable name="ShapeOfView">
+  <declare-styleable name="ShapedView">
     <attr name="shape_clip_drawable" format="reference"/>
   </declare-styleable>
   
@@ -39,6 +39,10 @@
   
   <declare-styleable name="ArcView">
     <attr name="shape_arc_height" format="dimension"/>
+    <attr name="shape_arc_cropDirection" format="enum">
+      <enum name="inside" value="1"/>
+      <enum name="outside" value="2"/>
+    </attr>
     <attr name="shape_arc_position" format="enum">
       <enum name="bottom" value="1"/>
       <enum name="top" value="2"/>

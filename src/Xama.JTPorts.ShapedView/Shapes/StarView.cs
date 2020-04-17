@@ -1,18 +1,22 @@
 ﻿using Android.Content;
 using Android.Content.Res;
+using Android.Graphics;
 using Android.Util;
-using Xama.JTPorts.ShapedView.PathCreators;
+using Java.Lang;
+using Xama.JTPorts.ShapedView.Interfaces;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
-    public class StarView : ViewShape
+    public class StarView : ViewShape, IClipPathCreator
     {
+        private float numberOfPoints;
+
         public float NumberOfPoints
         {
-            get => NumberOfPoints;
+            get => numberOfPoints;
             set
             {
-                this.NumberOfPoints = value;
+                this.numberOfPoints = value;
                 RequiresShapeUpdate();
             }
         }
@@ -43,7 +47,31 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 NumberOfPoints = points > 2 ? points : NumberOfPoints;
                 attributes.Recycle();
             }
-            SetClipPathCreator(new StarClipPathCreator(NumberOfPoints));
+            SetClipPathCreator(this);
+        }
+
+        public Path CreateClipPath(int width, int height)
+        {
+            int vertices = (int)NumberOfPoints * 2;
+            float alpha = (float)(2 * Math.Pi) / vertices;
+            int radius = (height <= width ? height : width) / 2;
+            float centerX = width / 2;
+            float centerY = height / 2;
+
+            Path path = new Path();
+            for (int i = vertices + 1; i != 0; i--)
+            {
+                float r = radius * (i % 2 + 1) / 2;
+                double omega = alpha * i;
+                path.LineTo((float)(r * Math.Sin(omega)) + centerX, (float)(r * Math.Cos(omega)) + centerY);
+            }
+            path.Close();
+            return path;
+        }
+
+        public bool RequiresBitmap()
+        {
+            return true;
         }
     }
 }

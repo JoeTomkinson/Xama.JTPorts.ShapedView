@@ -1,6 +1,6 @@
 ﻿using Android.Graphics;
 
-namespace Xama.JTPorts.ShapedView.Managers
+namespace Xama.JTPorts.ShapedView.Interfaces
 {
     public interface IClipManager
     {

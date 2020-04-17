@@ -1,4 +1,7 @@
 ﻿using Android.Graphics;
+using Android.Runtime;
+using System;
+using Xama.JTPorts.ShapedView.Interfaces;
 
 namespace Xama.JTPorts.ShapedView.Managers
 {
@@ -14,6 +17,10 @@ namespace Xama.JTPorts.ShapedView.Managers
             paint.SetStyle(Paint.Style.Fill);
             paint.AntiAlias = true;
             paint.StrokeWidth = 1;
+        }
+
+        public ClipPathManager(IntPtr handle, JniHandleOwnership transfer) : base(handle, transfer)
+        {
         }
 
         public Path CreateMask(int width, int height)

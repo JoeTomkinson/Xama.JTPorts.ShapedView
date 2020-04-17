@@ -1,16 +1,22 @@
 ﻿using Android.Content;
 using Android.Content.Res;
+using Android.Graphics;
 using Android.Util;
-using Xama.JTPorts.ShapedView.PathCreators;
+using Xama.JTPorts.ShapedView.Interfaces;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
-    public class CutCornerView : ViewShape
+    public class CutCornerView : ViewShape, IClipPathCreator
     {
+        private float topLeftCutSizePx;
+        private float topRightCutSizePx;
+        private float bottomRightCutSizePx;
+        private float bottomLeftCutSizePx;
+
         public float TopLeftCutSizePx
         {
-            get => TopLeftCutSizePx;
-            set { TopLeftCutSizePx = value; RequiresShapeUpdate(); }
+            get => topLeftCutSizePx;
+            set { topLeftCutSizePx = value; RequiresShapeUpdate(); }
         }
 
         public float TopLeftCutSizedP
@@ -21,8 +27,8 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public float TopRightCutSizePx
         {
-            get => TopRightCutSizePx;
-            set { TopRightCutSizePx = value; RequiresShapeUpdate(); }
+            get => topRightCutSizePx;
+            set { topRightCutSizePx = value; RequiresShapeUpdate(); }
         }
 
         public float TopRightCutSizedP
@@ -33,10 +39,10 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public float BottomRightCutSizePx
         {
-            get => BottomRightCutSizePx;
+            get => bottomRightCutSizePx;
             set
             {
-                BottomRightCutSizePx = value; RequiresShapeUpdate();
+                bottomRightCutSizePx = value; RequiresShapeUpdate();
             }
         }
 
@@ -48,10 +54,10 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public float BottomLeftCutSizePx
         {
-            get => BottomLeftCutSizePx;
+            get => bottomLeftCutSizePx;
             set
             {
-                BottomLeftCutSizePx = value; RequiresShapeUpdate();
+                bottomLeftCutSizePx = value; RequiresShapeUpdate();
             }
         }
 
@@ -92,7 +98,42 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 BottomRightCutSizePx = attributes.GetDimensionPixelSize(Resource.Styleable.CutCornerView_shape_cutCorner_bottomRightSize, (int)BottomRightCutSizePx);
                 attributes.Recycle();
             }
-            SetClipPathCreator(new CurCornerPathCreator(TopLeftCutSizePx, TopRightCutSizePx, BottomRightCutSizePx, BottomLeftCutSizePx));
+            SetClipPathCreator(this);
         }
+
+        public Path CreateClipPath(int width, int height)
+        {
+            var rectF = new RectF(0, 0, width, height);
+            return GeneratePath(rectF, TopLeftCutSizePx, TopRightCutSizePx, BottomRightCutSizePx, BottomLeftCutSizePx);
+        }
+
+        public bool RequiresBitmap()
+        {
+            return false;
+        }
+
+        private Path GeneratePath(RectF rect, float topLeftDiameter, float topRightDiameter, float bottomRightDiameter, float bottomLeftDiameter)
+        {
+            Path path = new Path();
+
+            topLeftDiameter = topLeftDiameter < 0 ? 0 : topLeftDiameter;
+            topRightDiameter = topRightDiameter < 0 ? 0 : topRightDiameter;
+            bottomLeftDiameter = bottomLeftDiameter < 0 ? 0 : bottomLeftDiameter;
+            bottomRightDiameter = bottomRightDiameter < 0 ? 0 : bottomRightDiameter;
+
+            path.MoveTo(rect.Left + topLeftDiameter, rect.Top);
+            path.LineTo(rect.Right - topRightDiameter, rect.Top);
+            path.LineTo(rect.Right, rect.Top + topRightDiameter);
+            path.LineTo(rect.Right, rect.Bottom - bottomRightDiameter);
+            path.LineTo(rect.Right - bottomRightDiameter, rect.Bottom);
+            path.LineTo(rect.Left + bottomLeftDiameter, rect.Bottom);
+            path.LineTo(rect.Left, rect.Bottom - bottomLeftDiameter);
+            path.LineTo(rect.Left, rect.Top + topLeftDiameter);
+            path.LineTo(rect.Left + topLeftDiameter, rect.Top);
+            path.Close();
+
+            return path;
+        }
+
     }
 }

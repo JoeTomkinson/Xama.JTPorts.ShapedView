@@ -3,16 +3,20 @@ using Android.Content.Res;
 using Android.Graphics;
 using Android.Util;
 using System;
-using Xama.JTPorts.ShapedView.PathCreators;
+using Xama.JTPorts.ShapedView.Interfaces;
 
 namespace Xama.JTPorts.ShapedView.Shapes
 {
-    public class CircleView : ViewShape
+    public class CircleView : ViewShape, IClipPathCreator
     {
+        private float borderWidth;
+        private Color borderColor;
+        private Paint borderPaint = new Paint(PaintFlags.AntiAlias);
+
         public float BorderWidth
         {
-            get => BorderWidth;
-            set { BorderWidth = value; RequiresShapeUpdate(); }
+            get => borderWidth;
+            set { borderWidth = value; RequiresShapeUpdate(); }
         }
 
         public float BorderWidthdP
@@ -23,11 +27,9 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
         public Color BorderColor
         {
-            get => BorderColor;
-            set => BorderColor = value;
+            get => borderColor;
+            set => borderColor = value;
         }
-
-        private Paint borderPaint = new Paint(PaintFlags.AntiAlias);
 
         public CircleView(Context context) : base(context)
         {
@@ -60,7 +62,7 @@ namespace Xama.JTPorts.ShapedView.Shapes
 
             borderPaint.AntiAlias = true;
             borderPaint.SetStyle(Paint.Style.Stroke);
-            SetClipPathCreator(new CircleClipPathCreator());
+            SetClipPathCreator(this);
         }
 
         protected override void DispatchDraw(Canvas canvas)
@@ -72,6 +74,18 @@ namespace Xama.JTPorts.ShapedView.Shapes
                 borderPaint.Color = BorderColor;
                 canvas.DrawCircle(Width / 2f, Height / 2f, Math.Min((Width - BorderWidth) / 2f, (Height - BorderWidth) / 2f), borderPaint);
             }
+        }
+
+        public Path CreateClipPath(int width, int height)
+        {
+            Path path = new Path();
+            path.AddCircle(width / 2f, height / 2f, Math.Min(width / 2f, height / 2f), Path.Direction.Cw);
+            return path;
+        }
+
+        public bool RequiresBitmap()
+        {
+            return false;
         }
     }
 }
