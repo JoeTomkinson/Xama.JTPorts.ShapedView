@@ -20,19 +20,21 @@
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <PackageId>Xama.JTPorts.ShapedView</PackageId>
-    <PackageVersion>1.0.1</PackageVersion>
-    <PackageIcon>nugetIcon.png</PackageIcon>
+    <PackageVersion>1.0.2</PackageVersion>
+    <Icon>nugetIcon.png</Icon>
     <Description>Give a custom shape to any android view</Description>
     <Authors>Joe Tomkinson</Authors>
     <Title>Xama.JTPorts.ShapedView</Title>
     <Copyright>Joe Tomkinson</Copyright>
     <PackageProjectUrl>https://github.com/DigitalSa1nt/Xama.JTPorts.ShapedView</PackageProjectUrl>
     <Owners>Joe Tomkinson</Owners>
-    <PackageLicenseUrl>https://github.com/DigitalSa1nt/Xama.JTPorts.ShapedView/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>1.0.1 - Adjusted some nugetspec configurations
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageReleaseNotes>1.0.2 - Corrected implementation of clip path creators. fixed breaking bugs.
+1.0.1 - Adjusted some nugetspec configurations
 1.0.0 - First port of ShapeOfView version 1.4.5</PackageReleaseNotes>
     <Summary>Give a custom shape to any android view</Summary>
-    <PackageIconUrl>https://raw.githubusercontent.com/DigitalSa1nt/Xama.JTPorts.ShapedView/master/nuget/nugetIcon.png</PackageIconUrl>
+    <PackageIconUrl>
+    </PackageIconUrl>
     <NeutralLanguage>En</NeutralLanguage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -96,7 +98,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <AndroidAsset Include="Assets\nugetIcon.png" />
+    <None Include="images\nugetIcon.png" Pack="true" PackagePath="nugetIcon.png" />
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
