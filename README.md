@@ -305,12 +305,14 @@ Please then make a `merge-request` after updated the README with a sample of you
 # Current ToDo
 
 - [ ] Tidy up / Finish this readme.
-- [ ] Finish port of shapes.
-- [ ] Create Nuget Package.
-- [ ] See if we can't Csharp it's implementation a bit more.
+- [x] Finish port of shapes.
+- [x] Create Nuget Package.
+- [x] See if we can't Csharp it's implementation a bit more.
 
 # Version History
 
+**1.0.3** - Had to add in old NuGet spec configs for icon and license URL. - Skipped other releases as they were all very much broken.
+**1.0.2** - Corrected implementation of clip path creators. fixed breaking bugs.
 **1.0.1** - Added/Amended missing nugetspec configurations.
 **1.0.0** - First port of ShapeOfView version **1.4.5** 
 
